@@ -1,0 +1,615 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/product-detail.css";
+---
+
+<Layout
+	title="Autonix - Voltix Indicator Whitepaper | Professional Trading System"
+	description="Advanced multi-layered TradingView indicator with institutional trading logic, volume profile mapping, order block detection, and intelligent market structure analysis for retail traders."
+	keywords="autonix, voltix indicator, trading bot, expert advisor, volume profile, order blocks, fibonacci, tradingview, institutional trading, smart money"
+	canonicalUrl="https://autonix.io/products/autonix-ea-bot"
+>
+	<main class="whitepaper-document">
+		<!-- Document Header -->
+		<header class="document-header">
+			<div class="container">
+				<div class="header-content">
+					<div class="document-meta">
+						<span class="document-type">Technical Whitepaper</span>
+						<span class="document-version">Version 1.0</span>
+						<span class="document-date">January 2025</span>
+					</div>
+					<h1 class="document-title">
+						Autonix - Voltix Indicator
+						<span class="document-subtitle"
+							>Advanced Multi-Layered TradingView Indicator</span
+						>
+					</h1>
+					<div class="document-authors">
+						<span>Autonix Development Team</span>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Document Navigation -->
+		<nav class="document-nav">
+			<div class="container">
+				<div class="nav-content">
+					<div class="nav-toggle">
+						<i class="fas fa-bars"></i>
+						<span>Table of Contents</span>
+					</div>
+					<div class="nav-actions">
+						<a href="/" class="nav-link">
+							<i class="fas fa-home"></i>
+							<span>Home</span>
+						</a>
+						<a href="#contact" class="nav-link">
+							<i class="fas fa-envelope"></i>
+							<span>Contact</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div class="document-body">
+			<div class="container">
+				<div class="document-layout">
+					<!-- Sidebar Table of Contents -->
+					<aside class="document-sidebar">
+						<div class="toc-container">
+							<h3 class="toc-title">Table of Contents</h3>
+							<nav class="toc-nav">
+								<a href="#section-1" class="toc-link"
+									>1. Introduction</a
+								>
+								<a href="#section-2" class="toc-link"
+									>2. Problem Statement</a
+								>
+								<a href="#section-3" class="toc-link"
+									>3. Objectives</a
+								>
+								<a href="#section-4" class="toc-link"
+									>4. Key Features</a
+								>
+								<a href="#section-4-5" class="toc-link"
+									>4.5. Live Demo</a
+								>
+								<a href="#section-5" class="toc-link"
+									>5. Advantages</a
+								>
+								<a href="#section-6" class="toc-link"
+									>6. Usage Scenarios</a
+								>
+								<a href="#section-7" class="toc-link"
+									>7. Future Development</a
+								>
+								<a href="#section-8" class="toc-link"
+									>8. Disclaimer</a
+								>
+								<a href="#section-9" class="toc-link"
+									>9. Contact & Licensing</a
+								>
+							</nav>
+						</div>
+					</aside>
+
+					<!-- Main Content -->
+					<article class="document-content">
+						<!-- Section 1: Introduction -->
+						<section class="doc-section" id="section-1">
+							<header class="section-header">
+								<h2 class="section-number">1.</h2>
+								<h2 class="section-title">Introduction</h2>
+							</header>
+							<div class="section-content">
+								<p class="section-text">
+									Voltix is an advanced, multi-layered
+									TradingView indicator designed to enhance
+									decision-making through intelligent market
+									structure detection, volume profile mapping,
+									order block zones, trend validation, and
+									price action confirmation. Voltix combines
+									institutional trading logic with
+									user-friendly features for retail traders,
+									providing high-probability trading signals
+									for scalping and swing trading.
+								</p>
+							</div>
+						</section>
+
+						<!-- Section 2: Problem Statement -->
+						<section class="doc-section" id="section-2">
+							<header class="section-header">
+								<h2 class="section-number">2.</h2>
+								<h2 class="section-title">Problem Statement</h2>
+							</header>
+							<div class="section-content">
+								<p class="section-text">
+									Most retail traders face challenges:
+								</p>
+								<ul class="doc-list">
+									<li>Uncertainty about entry timing</li>
+									<li>Trading against the trend</li>
+									<li>
+										False signals due to volatile markets
+									</li>
+									<li>
+										Lack of convergence in trading setups
+									</li>
+									<li>
+										Inability to identify key liquidity
+										zones (POC, VAH, VAL)
+									</li>
+								</ul>
+							</div>
+						</section>
+
+						<!-- Section 3: Objectives -->
+						<section class="doc-section" id="section-3">
+							<header class="section-header">
+								<h2 class="section-number">3.</h2>
+								<h2 class="section-title">Objectives</h2>
+							</header>
+							<div class="section-content">
+								<p class="section-text">
+									Autonix-Voltix aims to address these issues
+									by:
+								</p>
+								<ul class="doc-list">
+									<li>
+										Providing multi-confirmation signals
+									</li>
+									<li>
+										Filtering trades based on trend, volume,
+										and structure
+									</li>
+									<li>
+										Displaying smart money zones (Order
+										Blocks & Volume Profile)
+									</li>
+									<li>
+										Reducing market noise and detecting
+										valid zones
+									</li>
+								</ul>
+							</div>
+						</section>
+
+						<!-- Section 4: Key Features -->
+						<section class="doc-section" id="section-4">
+							<header class="section-header">
+								<h2 class="section-number">4.</h2>
+								<h2 class="section-title">Key Features</h2>
+							</header>
+							<div class="section-content">
+								<div class="features-table">
+									<div class="feature-row">
+										<div class="feature-name">
+											<i class="fas fa-chart-line"></i>
+											<span>Volume Profile Logic</span>
+										</div>
+										<div class="feature-desc">
+											Automatically calculates POC, VAH,
+											VAL within a specified range.
+											Traders can see where most
+											transactions occur.
+										</div>
+									</div>
+
+									<div class="feature-row">
+										<div class="feature-name">
+											<i class="fas fa-funnel-dollar"></i>
+											<span>HTF Trend Filter</span>
+										</div>
+										<div class="feature-desc">
+											Filters signals only in the
+											direction of the major trend based
+											on the Simple Moving Average (SMA).
+										</div>
+									</div>
+
+									<div class="feature-row">
+										<div class="feature-name">
+											<i class="fas fa-chart-area"></i>
+											<span
+												>Candle Engulfing Confirmation</span
+											>
+										</div>
+										<div class="feature-desc">
+											Detects bullish/bearish engulfing
+											candles to validate price momentum.
+										</div>
+									</div>
+
+									<div class="feature-row">
+										<div class="feature-name">
+											<i class="fas fa-layer-group"></i>
+											<span>Order Block Detection</span>
+										</div>
+										<div class="feature-desc">
+											Maps institutional demand/supply
+											zones for smart money analysis.
+										</div>
+									</div>
+
+									<div class="feature-row">
+										<div class="feature-name">
+											<i class="fas fa-bullseye"></i>
+											<span
+												>Fibonacci Zone Retest Logic</span
+											>
+										</div>
+										<div class="feature-desc">
+											Creates sniper entry zones within
+											the OB using Fibonacci levels (0.79,
+											0.90).
+										</div>
+									</div>
+
+									<div class="feature-row">
+										<div class="feature-name">
+											<i class="fas fa-balance-scale"></i>
+											<span>Risk-Reward TP Logic</span>
+										</div>
+										<div class="feature-desc">
+											Dynamically determines take-profit
+											levels based on the set SL and RR
+											ratio.
+										</div>
+									</div>
+
+									<div class="feature-row">
+										<div class="feature-name">
+											<i class="fas fa-tv"></i>
+											<span>Visual Panel</span>
+										</div>
+										<div class="feature-desc">
+											Displays real-time market trend
+											status (Bullish/Bearish/Sideways) on
+											the chart.
+										</div>
+									</div>
+
+									<div class="feature-row">
+										<div class="feature-name">
+											<i class="fas fa-bell"></i>
+											<span>Alert System</span>
+										</div>
+										<div class="feature-desc">
+											Sends alerts when valid buy/sell
+											signals are triggered.
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<!-- Section 4.5: Live Demo -->
+						<section
+							class="doc-section demo-section"
+							id="section-4-5"
+						>
+							<header class="section-header">
+								<h2 class="section-number">4.5</h2>
+								<h2 class="section-title">
+									Live Demonstration
+								</h2>
+							</header>
+							<div class="section-content">
+								<p class="section-text">
+									Experience the Voltix indicator in action on
+									TradingView. The following screenshots
+									demonstrate the real-world application of
+									our advanced multi-layered indicator system.
+								</p>
+
+								<div class="demo-gallery">
+									<div class="demo-item">
+										<div class="demo-image">
+											<img
+												src="/autonix-frontend/{212459E6-813A-4A7D-B5A7-34B17466D1DB}.png"
+												alt="Voltix Indicator Chart Analysis"
+											/>
+										</div>
+										<div class="demo-caption">
+											<h4>
+												Chart Analysis with Volume
+												Profile
+											</h4>
+											<p>
+												Real-time market analysis
+												showing POC, VAH, VAL levels
+												with order block detection and
+												trend confirmation on
+												Bitcoin/USDT pair.
+											</p>
+										</div>
+									</div>
+
+									<div class="demo-item">
+										<div class="demo-image">
+											<img
+												src="/autonix-frontend/{B6705EE3-D507-4BE7-8DAD-5705C575B291}.png"
+												alt="Voltix Indicator Settings Panel"
+											/>
+										</div>
+										<div class="demo-caption">
+											<h4>
+												Customizable Input Parameters
+											</h4>
+											<p>
+												User-friendly configuration
+												panel allowing traders to adjust
+												Volume Profile Range, HTF MA
+												Length, Risk-Reward Ratio, and
+												other key parameters.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<!-- Section 5: Advantages -->
+						<section class="doc-section" id="section-5">
+							<header class="section-header">
+								<h2 class="section-number">5.</h2>
+								<h2 class="section-title">Advantages</h2>
+							</header>
+							<div class="section-content">
+								<ul class="doc-list">
+									<li>
+										Institutional-level logic with a
+										user-friendly interface
+									</li>
+									<li>
+										Multi-timeframe trend filtering to
+										reduce false signals
+									</li>
+									<li>
+										Dynamic levels based on volume to target
+										liquidity
+									</li>
+									<li>
+										Suitable for beginners (simple
+										interface) and professionals (deep
+										structural logic)
+									</li>
+									<li>
+										Adaptive for scalping, day trading, and
+										swing strategies
+									</li>
+									<li>
+										Fully compatible with TradingView's
+										alert system
+									</li>
+								</ul>
+							</div>
+						</section>
+
+						<!-- Section 6: Usage Scenarios -->
+						<section class="doc-section" id="section-6">
+							<header class="section-header">
+								<h2 class="section-number">6.</h2>
+								<h2 class="section-title">Usage Scenarios</h2>
+							</header>
+							<div class="section-content">
+								<div class="usage-scenarios">
+									<div class="scenario-item">
+										<h4 class="scenario-title">Scalpers</h4>
+										<p class="scenario-description">
+											Can use low timeframe settings with
+											HTF confirmation.
+										</p>
+									</div>
+									<div class="scenario-item">
+										<h4 class="scenario-title">
+											Swing Traders
+										</h4>
+										<p class="scenario-description">
+											Combine OB + Volume Profile Zones
+											for daily setups.
+										</p>
+									</div>
+									<div class="scenario-item">
+										<h4 class="scenario-title">
+											Trend Followers
+										</h4>
+										<p class="scenario-description">
+											Follow HTF trend confirmation for
+											sniper entries.
+										</p>
+									</div>
+									<div class="scenario-item">
+										<h4 class="scenario-title">
+											Price Action Traders
+										</h4>
+										<p class="scenario-description">
+											Validate with engulfing + Fibonacci
+											retest.
+										</p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<!-- Section 7: Future Development -->
+						<section class="doc-section" id="section-7">
+							<header class="section-header">
+								<h2 class="section-number">7.</h2>
+								<h2 class="section-title">
+									Future Development
+								</h2>
+							</header>
+							<div class="section-content">
+								<ul class="doc-list">
+									<li>
+										Integration with Autonix Signal
+										Dashboard
+									</li>
+									<li>
+										Backtest-ready alerts with webhook
+										automation
+									</li>
+									<li>
+										Integration with Telegram/Discord bots
+									</li>
+								</ul>
+							</div>
+						</section>
+
+						<!-- Section 8: Disclaimer -->
+						<section
+							class="doc-section disclaimer-section"
+							id="section-8"
+						>
+							<header class="section-header">
+								<h2 class="section-number">8.</h2>
+								<h2 class="section-title">Disclaimer</h2>
+							</header>
+							<div class="section-content">
+								<div class="disclaimer-box">
+									<p class="section-text">
+										This product, including the
+										Autonix-Voltix indicator, Autonix EA,
+										trading signals, and educational
+										materials provided, is intended solely
+										for educational and informational
+										purposes. No part of this product should
+										be construed as financial advice,
+										investment advice, or a guarantee of
+										profits.
+									</p>
+									<p class="section-text">
+										All trading decisions made by users are
+										solely the responsibility of the users
+										themselves. We are not liable for any
+										financial losses, damages, or legal
+										consequences that may arise from the use
+										of this product. Users must understand
+										that trading involves high risks and may
+										result in the loss of some or all of the
+										invested capital. Please conduct your
+										own analysis and consultation before
+										making any trading decisions. By using
+										this product, you acknowledge that you
+										have read, understands, and agrees to
+										this disclaimer.
+									</p>
+								</div>
+							</div>
+						</section>
+
+						<!-- Section 9: Contact & Licensing -->
+						<section
+							class="doc-section contact-section"
+							id="section-9"
+						>
+							<header class="section-header">
+								<h2 class="section-number">9.</h2>
+								<h2 class="section-title">
+									Contact & Licensing
+								</h2>
+							</header>
+							<div class="section-content">
+								<p class="section-text">
+									Autonix is part of the Autonix ecosystem and
+									available through:
+								</p>
+								<ul class="doc-list">
+									<li>Premium licence access</li>
+									<li>Group packages with EAs and e-books</li>
+									<li>Signal group access for VIPs</li>
+								</ul>
+								<div class="contact-info">
+									<div class="contact-item">
+										<strong>Website:</strong>
+										<a
+											href="https://autonixcrypto.com"
+											target="_blank">AutonixCrypto.com</a
+										>
+									</div>
+									<div class="contact-item">
+										<strong>Email:</strong>
+										<a
+											href="mailto:support@autonixcrypto.com"
+											>support@autonixcrypto.com</a
+										>
+									</div>
+								</div>
+							</div>
+						</section>
+					</article>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<script>
+	// Table of Contents Navigation
+	const tocLinks = document.querySelectorAll(".toc-link");
+	const sections = document.querySelectorAll(".doc-section");
+	const navToggle = document.querySelector(".nav-toggle");
+	const sidebar = document.querySelector(".document-sidebar");
+
+	// Mobile TOC toggle
+	navToggle?.addEventListener("click", () => {
+		sidebar?.classList.toggle("active");
+	});
+
+	// Smooth scrolling for TOC links
+	tocLinks.forEach((link) => {
+		link.addEventListener("click", (e: Event) => {
+			e.preventDefault();
+			const targetId = (link as HTMLAnchorElement).getAttribute("href");
+			if (targetId) {
+				const targetSection = document.querySelector(targetId);
+				if (targetSection) {
+					targetSection.scrollIntoView({
+						behavior: "smooth",
+						block: "start",
+					});
+				}
+			}
+			// Close mobile menu
+			sidebar?.classList.remove("active");
+		});
+	});
+
+	// Active section highlighting
+	const observerOptions = {
+		threshold: 0.3,
+		rootMargin: "-20% 0px -70% 0px",
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			const id = entry.target.getAttribute("id");
+			const tocLink = document.querySelector(`a[href="#${id}"]`);
+
+			if (entry.isIntersecting) {
+				// Remove active class from all links
+				tocLinks.forEach((link) => link.classList.remove("active"));
+				// Add active class to current link
+				tocLink?.classList.add("active");
+			}
+		});
+	}, observerOptions);
+
+	// Observe all sections
+	sections.forEach((section) => {
+		observer.observe(section);
+	});
+
+	// Close mobile menu when clicking outside
+	document.addEventListener("click", (e: Event) => {
+		const target = e.target as Node;
+		if (!sidebar?.contains(target) && !navToggle?.contains(target)) {
+			sidebar?.classList.remove("active");
+		}
+	});
+</script>

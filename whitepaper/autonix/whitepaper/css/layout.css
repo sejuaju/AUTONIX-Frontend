@@ -1,0 +1,287 @@
+/* Layout Structure */
+
+/* Main Layout */
+.main-content {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    background: var(--background-primary);
+    transition: margin-left var(--transition-normal);
+}
+
+/* Container */
+.container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Grid System */
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Flexbox Utilities */
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+/* Spacing Utilities */
+.gap-1 {
+    gap: 0.5rem;
+}
+
+.gap-2 {
+    gap: 1rem;
+}
+
+.gap-3 {
+    gap: 1.5rem;
+}
+
+.gap-4 {
+    gap: 2rem;
+}
+
+.p-1 {
+    padding: 0.5rem;
+}
+
+.p-2 {
+    padding: 1rem;
+}
+
+.p-3 {
+    padding: 1.5rem;
+}
+
+.p-4 {
+    padding: 2rem;
+}
+
+.m-1 {
+    margin: 0.5rem;
+}
+
+.m-2 {
+    margin: 1rem;
+}
+
+.m-3 {
+    margin: 1.5rem;
+}
+
+.m-4 {
+    margin: 2rem;
+}
+
+/* Text Alignment */
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+/* Display Utilities */
+.hidden {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+/* Position Utilities */
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.sticky {
+    position: sticky;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding-top: 4rem;
+        /* Space for mobile button */
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-auto {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-hidden {
+        display: none;
+    }
+
+    .mobile-block {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding-top: 3.5rem;
+    }
+
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .grid {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .main-content {
+        padding-top: 3rem;
+    }
+
+    .container {
+        padding: 0 0.5rem;
+    }
+}
+
+/* Mobile-specific utilities */
+@media (max-width: 768px) {
+    .mobile-text-center {
+        text-align: center;
+    }
+
+    .mobile-text-left {
+        text-align: left;
+    }
+
+    .mobile-full-width {
+        width: 100%;
+    }
+
+    .mobile-no-margin {
+        margin: 0;
+    }
+
+    .mobile-small-padding {
+        padding: 0.5rem;
+    }
+
+    .mobile-medium-padding {
+        padding: 1rem;
+    }
+
+    /* Mobile-friendly spacing */
+    .mobile-stack>*+* {
+        margin-top: 1rem;
+    }
+
+    /* Better mobile typography */
+    .mobile-readable {
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: left;
+    }
+}
+
+/* Tablet-specific adjustments */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .document-section {
+        padding: 2.5rem 1.5rem 2rem;
+    }
+
+    .document-header {
+        padding: 2.5rem 1.5rem 2rem;
+    }
+}
+
+/* Large phone adjustments */
+@media (min-width: 376px) and (max-width: 480px) {
+    .document-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .subsection-title {
+        font-size: 1.1rem;
+    }
+}

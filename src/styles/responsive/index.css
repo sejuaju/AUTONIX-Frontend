@@ -1,0 +1,57 @@
+/* 
+ * AUTONIX Responsive Styles - Main Import File
+ * 
+ * This file imports all responsive breakpoint styles in the correct order.
+ * Import this file in your main CSS or layout files.
+ * 
+ * Breakpoint Structure:
+ * - Extra Small: < 360px
+ * - Mobile: 360px - 575px  
+ * - Tablet: 576px - 991px
+ * - Desktop: 992px - 1199px
+ * - Large Desktop: 1200px+
+ */
+
+/* Import all responsive breakpoint files */
+@import './extra-small.css';
+@import './mobile.css';
+@import './tablet.css';
+@import './desktop.css';
+@import './large-desktop.css';
+
+/* Base responsive utilities that apply to all breakpoints */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* Hide/show utilities for different breakpoints */
+@media (max-width: 359.98px) {
+  .hide-xs { display: none !important; }
+  .show-xs { display: block !important; }
+}
+
+@media (max-width: 575.98px) {
+  .hide-mobile { display: none !important; }
+  .show-mobile { display: block !important; }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .hide-tablet { display: none !important; }
+  .show-tablet { display: block !important; }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .hide-desktop { display: none !important; }
+  .show-desktop { display: block !important; }
+}
+
+@media (min-width: 1200px) {
+  .hide-large { display: none !important; }
+  .show-large { display: block !important; }
+}

@@ -1,0 +1,245 @@
+---
+// Tokenomics Component
+---
+
+<style>
+	@import '../styles/tokenomics.css';
+</style>
+
+<!-- Tokenomics Section -->
+<section id="tokenomics" class="tokenomics-section">
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title gradient-text">$ATX Tokenomics</h2>
+			<p class="section-subtitle">The $ATX token serves as the primary utility token within the AUTONIX ecosystem, facilitating transactions, governance, and access to premium features.</p>
+		</div>
+		
+		<!-- Main Tokenomics Content -->
+		<div class="tokenomics-content">
+			<!-- Token Allocation Section -->
+			<div class="allocation-section">
+				<div class="section-title-wrapper">
+					<div class="section-icon">
+						<i class="fas fa-chart-pie"></i>
+					</div>
+					<h3 class="section-title gradient-text">Token Allocation</h3>
+				</div>
+				
+				<!-- Allocation Container - Side by Side Layout -->
+				<div class="allocation-container">
+					<!-- Left Legend -->
+					<div class="legend-left">
+						<div class="legend-item" data-slice="1">
+							<div class="legend-indicator">
+								<div class="legend-color color-1"></div>
+							</div>
+							<div class="legend-content">
+								<span class="legend-label">Liquidity Pool</span>
+								<span class="legend-amount">55,000,000 $ATX</span>
+							</div>
+						</div>
+						
+						<div class="legend-item" data-slice="2">
+							<div class="legend-indicator">
+								<div class="legend-color color-2"></div>
+							</div>
+							<div class="legend-content">
+								<span class="legend-label">Development & R&D</span>
+								<span class="legend-amount">20,000,000 $ATX</span>
+							</div>
+						</div>
+
+						<div class="legend-item" data-slice="5">
+							<div class="legend-indicator">
+								<div class="legend-color color-5"></div>
+							</div>
+							<div class="legend-content">
+								<span class="legend-label">Reserves & Burn</span>
+								<span class="legend-amount">5,000,000 $ATX</span>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Pie Chart Container -->
+					<div class="pie-chart-container">
+						<div class="pie-chart">
+							<div class="pie-slice slice-1" data-percentage="55"></div>
+							<div class="pie-slice slice-2" data-percentage="20"></div>
+							<div class="pie-slice slice-3" data-percentage="10"></div>
+							<div class="pie-slice slice-4" data-percentage="10"></div>
+							<div class="pie-slice slice-5" data-percentage="5"></div>
+							
+							<!-- Percentage Labels on Pie Chart -->
+							<div class="pie-label pie-label-1">55%</div>
+							<div class="pie-label pie-label-2">20%</div>
+							<div class="pie-label pie-label-3">10%</div>
+							<div class="pie-label pie-label-4">10%</div>
+							<div class="pie-label pie-label-5">5%</div>
+							
+							<div class="chart-center">
+								<div class="chart-center-text">
+									<span class="chart-total">100M</span>
+									<span class="chart-label">$ATX</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Right Legend -->
+					<div class="legend-right">
+						<div class="legend-item" data-slice="3">
+							<div class="legend-indicator">
+								<div class="legend-color color-3"></div>
+							</div>
+							<div class="legend-content">
+								<span class="legend-label">Marketing</span>
+								<span class="legend-amount">10,000,000 $ATX</span>
+							</div>
+						</div>
+						
+						<div class="legend-item" data-slice="4">
+							<div class="legend-indicator">
+								<div class="legend-color color-4"></div>
+							</div>
+							<div class="legend-content">
+								<span class="legend-label">Team & Advisors (locked)</span>
+								<span class="legend-amount">10,000,000 $ATX</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Hidden allocation-legend for CSS compatibility -->
+				<div class="allocation-legend" style="display: none;"></div>
+			</div>
+			
+			<!-- Vesting Schedule Section -->
+			<div class="vesting-section">
+				<div class="section-title-wrapper">
+					<div class="section-icon">
+						<i class="fas fa-calendar-alt"></i>
+					</div>
+					<h3 class="section-title gradient-text">Vesting Schedule</h3>
+				</div>
+				
+				<div class="vesting-timeline">
+					<div class="timeline-item">
+						<div class="timeline-marker">
+							<i class="fas fa-users"></i>
+						</div>
+						<div class="timeline-content">
+							<h4>Team & Advisors</h4>
+							<p>Team tokens are locked for 12 months, with linear release over 18 months to ensure long-term commitment</p>
+							<div class="timeline-percentage">12M Cliff + 18M Linear</div>
+						</div>
+					</div>
+					
+					<div class="timeline-item">
+						<div class="timeline-marker">
+							<i class="fas fa-chart-line"></i>
+						</div>
+						<div class="timeline-content">
+							<h4>Development & Marketing</h4>
+							<p>Development & marketing vesting over 6 months, with quarterly unlocking to support continuous platform development</p>
+							<div class="timeline-percentage">6M Quarterly Release</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	// Tokenomics allocation bars animation
+	document.addEventListener('DOMContentLoaded', function() {
+		// Position pie chart labels automatically
+		function positionPieLabels() {
+			const pieChart = document.querySelector('.pie-chart');
+			const labels = document.querySelectorAll('.pie-label');
+			
+			if (!pieChart || labels.length === 0) return;
+			
+			// Get pie chart dimensions
+			const chartRect = pieChart.getBoundingClientRect();
+			const centerX = chartRect.width / 2;
+			const centerY = chartRect.height / 2;
+			const radius = Math.min(centerX, centerY) * 0.7; // 70% of radius for label positioning
+			
+			// Data for each slice matching the CSS conic-gradient order exactly
+			// CSS: from 225deg, #3b82f6 0% 55%, #10b981 55% 65%, #8b5cf6 65% 75%, #ef4444 75% 80%, #06b6d4 80% 100%
+			const sliceData = [
+				{ percentage: 55, label: '.pie-label-1', startPercent: 0 },    // Liquidity Pool (blue) - 0% to 55%
+				{ percentage: 10, label: '.pie-label-3', startPercent: 55 },   // Marketing (green) - 55% to 65%
+				{ percentage: 10, label: '.pie-label-4', startPercent: 65 },   // Team & Advisors (purple) - 65% to 75%
+				{ percentage: 5, label: '.pie-label-5', startPercent: 75 },    // Reserves & Burn (red) - 75% to 80%
+				{ percentage: 20, label: '.pie-label-2', startPercent: 80 }    // Development & R&D (cyan) - 80% to 100%
+			];
+			
+			sliceData.forEach((slice) => {
+				const label = document.querySelector(slice.label);
+				if (!label) return;
+				
+				// Calculate the middle angle of this slice
+				const middlePercent = slice.startPercent + (slice.percentage / 2);
+				const middleAngle = (middlePercent / 100) * 360;
+				
+				// Convert to radians, accounting for CSS rotation and starting position
+				// CSS starts from 225deg and rotates from -90deg to 0deg during animation
+				const angleInRadians = ((middleAngle + 225 - 90) * Math.PI) / 180;
+				
+				// Calculate x, y coordinates
+				const x = centerX + radius * Math.cos(angleInRadians);
+				const y = centerY + radius * Math.sin(angleInRadians);
+				
+				// Position the label immediately (before animation starts)
+				const htmlLabel = label as HTMLElement;
+				htmlLabel.style.left = `${x}px`;
+				htmlLabel.style.top = `${y}px`; 
+				htmlLabel.style.transform = 'translate(-50%, -50%)';
+			});
+		}
+		
+		// Position labels immediately when DOM is ready (before animation starts)
+		positionPieLabels();
+		
+		// Also position labels after a short delay to ensure chart is fully rendered
+		setTimeout(positionPieLabels, 100);
+		
+		// Reposition on window resize with debounce
+		let resizeTimeout: number;
+		window.addEventListener('resize', () => {
+			clearTimeout(resizeTimeout);
+			resizeTimeout = window.setTimeout(positionPieLabels, 100);
+		});
+		
+		// Intersection Observer to detect when tokenomics section is visible
+		const observerOptions = {
+			threshold: 0.2,
+			rootMargin: '0px 0px -30px 0px'
+		};
+
+		const animateAllocationBars = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+			entries.forEach((entry: IntersectionObserverEntry) => {
+				if (entry.isIntersecting) {
+					const allocationBars = entry.target.querySelectorAll('.allocation-fill');
+					
+					allocationBars.forEach((bar: Element, index: number) => {
+						const htmlBar = bar as HTMLElement;
+						setTimeout(() => {
+							htmlBar.style.width = htmlBar.getAttribute('data-width') || '0%';
+						}, index * 200);
+					});
+					
+					observer.unobserve(entry.target);
+				}
+			});
+		};
+
+		const tokenomicsSection = document.querySelector('.tokenomics-section');
+		if (tokenomicsSection) {
+			const observer = new IntersectionObserver(animateAllocationBars, observerOptions);
+			observer.observe(tokenomicsSection);
+		}
+	});
+</script>

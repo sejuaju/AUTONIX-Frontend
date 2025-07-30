@@ -1,0 +1,560 @@
+---
+// Header component for AUTONIX website
+import '../styles/header.css';
+
+---
+
+<!-- Skip Link for Accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Header -->
+<header class="header" role="banner">
+	<nav class="nav container" role="navigation" aria-label="Main navigation">
+		<a href="/" class="logo" aria-label="AUTONIX - Go to homepage">
+			<img src="/autonix-frontend/logo.jpg" alt="AUTONIX Logo" role="img" />
+			<div class="brand-text">
+				<div class="brand-name gradient-text" aria-label="AUTONIX">
+					AUTONIX
+				</div>
+				<div class="brand-subtitle" aria-label="Trading Ecosystem">
+					TRADING ECOSYSTEM
+				</div>
+			</div>
+		</a>
+
+		<!-- Desktop Navigation -->
+		<ul
+			class="nav-links"
+			role="menubar"
+			aria-label="Desktop navigation menu"
+		>
+			<li role="none">
+				<a href="#features" role="menuitem">Features</a>
+			</li>
+			<li role="none">
+				<a href="#products" role="menuitem">Products</a>
+			</li>
+			<li role="none">
+				<a href="#tokenomics" role="menuitem">Tokenomics</a>
+			</li>
+			<li role="none"><a href="#roadmap" role="menuitem">Roadmap</a></li>
+			<li role="none"><a href="/autonix-frontend/contact" role="menuitem">Contact</a></li>
+		</ul>
+
+		<!-- Hamburger Menu Button (Mobile Only) -->
+		<button
+			class="hamburger-menu"
+			aria-label="Open mobile navigation menu"
+			aria-expanded="false"
+			aria-controls="mobile-menu"
+			aria-haspopup="true"
+			type="button"
+		>
+			<span class="hamburger-line" aria-hidden="true"></span>
+			<span class="hamburger-line" aria-hidden="true"></span>
+			<span class="hamburger-line" aria-hidden="true"></span>
+			<span class="sr-only">Menu</span>
+		</button>
+
+		<a
+			href="#whitepaper"
+			class="cta-button"
+			aria-label="Download whitepaper">Whitepaper</a
+		>
+	</nav>
+
+	<!-- Mobile Menu Overlay -->
+	<div
+		class="mobile-menu"
+		id="mobile-menu"
+		role="dialog"
+		aria-modal="true"
+		aria-labelledby="mobile-menu-title"
+		aria-hidden="true"
+	>
+		<div class="mobile-menu-container">
+			<h2 id="mobile-menu-title" class="sr-only">
+				Mobile Navigation Menu
+			</h2>
+			<ul
+				class="mobile-nav-links"
+				role="menu"
+				aria-label="Mobile navigation menu"
+			>
+				<li role="none">
+					<a href="#features" role="menuitem" tabindex="-1"
+					>Features</a
+					>
+				</li>
+				<li role="none">
+					<a href="#products" role="menuitem" tabindex="-1"
+					>Products</a
+					>
+				</li>
+				<li role="none">
+					<a href="#tokenomics" role="menuitem" tabindex="-1"
+					>Tokenomics</a
+					>
+				</li>
+				<li role="none">
+					<a href="#roadmap" role="menuitem" tabindex="-1">Roadmap</a>
+				</li>
+				<li role="none">
+					<a href="/autonix-frontend/contact" role="menuitem" tabindex="-1">Contact</a>
+				</li>
+				<li role="none">
+					<a
+						href="#whitepaper"
+						class="mobile-cta"
+						role="menuitem"
+						tabindex="-1"
+						aria-label="Download whitepaper"
+					>
+						<span class="mobile-cta-icon" aria-hidden="true"
+						>📄</span
+						>
+						<span class="mobile-cta-text">Whitepaper</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
+
+<script>
+	// Mobile menu functionality with enhanced features
+	document.addEventListener("DOMContentLoaded", function () {
+		const hamburgerMenu = document.querySelector(
+			".hamburger-menu",
+		) as HTMLButtonElement;
+		const mobileMenu = document.querySelector(
+			".mobile-menu",
+		) as HTMLElement;
+		const mobileNavLinks = document.querySelectorAll(
+			".mobile-nav-links a",
+		) as NodeListOf<HTMLAnchorElement>;
+		const header = document.querySelector(".header") as HTMLElement;
+
+		// State management
+		let isMenuOpen = false;
+		let isAnimating = false;
+		let lastFocusedElement: HTMLElement | null = null;
+
+		// Utility functions
+		function closeMobileMenu() {
+			if (isAnimating || !isMenuOpen) return;
+
+			isAnimating = true;
+			isMenuOpen = false;
+
+			hamburgerMenu?.classList.remove("active");
+			mobileMenu?.classList.remove("active");
+			hamburgerMenu?.setAttribute("aria-expanded", "false");
+			hamburgerMenu?.setAttribute(
+				"aria-label",
+				"Open mobile navigation menu",
+			);
+			mobileMenu?.setAttribute("aria-hidden", "true");
+
+			// Reset tabindex for mobile menu items
+			const mobileMenuItems = mobileMenu?.querySelectorAll(
+				"a",
+			) as NodeListOf<HTMLAnchorElement>;
+			mobileMenuItems?.forEach((item) => {
+				item.setAttribute("tabindex", "-1");
+			});
+
+			// Re-enable body scroll
+			document.body.style.overflow = "";
+
+			// Return focus to hamburger button
+			if (lastFocusedElement) {
+				(lastFocusedElement as HTMLElement).focus();
+				lastFocusedElement = null;
+			}
+
+			// Reset animation flag after transition
+			setTimeout(() => {
+				isAnimating = false;
+			}, 300);
+		}
+
+		function openMobileMenu() {
+			if (isAnimating || isMenuOpen) return;
+
+			isAnimating = true;
+			isMenuOpen = true;
+
+			// Store current focus
+			lastFocusedElement = document.activeElement as HTMLElement;
+
+			hamburgerMenu?.classList.add("active");
+			mobileMenu?.classList.add("active");
+			hamburgerMenu?.setAttribute("aria-expanded", "true");
+			hamburgerMenu?.setAttribute(
+				"aria-label",
+				"Close mobile navigation menu",
+			);
+			mobileMenu?.setAttribute("aria-hidden", "false");
+
+			// Enable tabindex for mobile menu items
+			const mobileMenuItems = mobileMenu?.querySelectorAll(
+				"a",
+			) as NodeListOf<HTMLAnchorElement>;
+			mobileMenuItems?.forEach((item) => {
+				item.setAttribute("tabindex", "0");
+			});
+
+			// Prevent body scroll when menu is open
+			document.body.style.overflow = "hidden";
+
+			// Reset animation flag after transition
+			setTimeout(() => {
+				isAnimating = false;
+				// Focus first menu item
+				const firstMenuItem = mobileMenu?.querySelector(
+					".mobile-nav-links a",
+				) as HTMLAnchorElement;
+				firstMenuItem?.focus();
+			}, 300);
+		}
+
+		function toggleMobileMenu() {
+			if (isAnimating) return;
+
+			if (isMenuOpen) {
+				closeMobileMenu();
+			} else {
+				openMobileMenu();
+			}
+		}
+
+		// Smooth scroll function
+		function smoothScrollTo(target: string) {
+			const element = document.querySelector(target) as HTMLElement;
+			if (element) {
+				const headerHeight = header?.offsetHeight || 60;
+				const elementPosition = element.offsetTop - headerHeight;
+
+				window.scrollTo({
+					top: elementPosition,
+					behavior: "smooth",
+				});
+			}
+		}
+
+		// Initialize menu functionality
+		if (hamburgerMenu && mobileMenu) {
+			// Hamburger menu click handler
+			hamburgerMenu.addEventListener("click", function (e: Event) {
+				e.preventDefault();
+				e.stopPropagation();
+				toggleMobileMenu();
+			});
+
+			// Navigation links click handler
+			mobileNavLinks.forEach((link) => {
+				link.addEventListener(
+					"click",
+					function (this: HTMLAnchorElement, e: Event) {
+						const href = this.getAttribute("href");
+
+						// Handle internal links (anchors)
+						if (href && href.startsWith("#")) {
+							e.preventDefault();
+							closeMobileMenu();
+
+							// Wait for menu close animation before scrolling
+							setTimeout(() => {
+								smoothScrollTo(href);
+							}, 300);
+						} else {
+							// For external links, just close the menu
+							closeMobileMenu();
+						}
+					},
+				);
+			});
+
+			// Keyboard navigation support
+			hamburgerMenu.addEventListener(
+				"keydown",
+				function (e: KeyboardEvent) {
+					if (e.key === "Enter" || e.key === " ") {
+						e.preventDefault();
+						toggleMobileMenu();
+					}
+				},
+			);
+
+			// Handle window resize
+			window.addEventListener("resize", function () {
+				if (window.innerWidth > 768 && isMenuOpen) {
+					closeMobileMenu();
+				}
+			});
+
+			// Handle orientation change
+			window.addEventListener("orientationchange", function () {
+				setTimeout(() => {
+					if (window.innerWidth > 768 && isMenuOpen) {
+						closeMobileMenu();
+					}
+				}, 100);
+			});
+
+			// Outside click handler
+			document.addEventListener("click", function (e: Event) {
+				if (!isMenuOpen) return;
+
+				const target = e.target as Node;
+				// Check if click is outside the mobile menu and hamburger button
+				const isClickInsideMenu = mobileMenu.contains(target);
+				const isClickOnHamburger = hamburgerMenu.contains(target);
+
+				if (!isClickInsideMenu && !isClickOnHamburger) {
+					closeMobileMenu();
+				}
+			});
+
+			// Escape key handler
+			document.addEventListener("keydown", function (e: KeyboardEvent) {
+				if (e.key === "Escape" && isMenuOpen) {
+					e.preventDefault();
+					closeMobileMenu();
+
+					// Return focus to hamburger button for accessibility
+					hamburgerMenu?.focus();
+				}
+			});
+
+			// Touch event handlers for mobile devices
+			let touchStartY = 0;
+			let touchEndY = 0;
+
+			mobileMenu.addEventListener(
+				"touchstart",
+				function (e: TouchEvent) {
+					touchStartY = e.changedTouches[0].screenY;
+				},
+				{ passive: true },
+			);
+
+			mobileMenu.addEventListener(
+				"touchend",
+				function (e: TouchEvent) {
+					touchEndY = e.changedTouches[0].screenY;
+
+					// Close menu on upward swipe (swipe up gesture)
+					const swipeDistance = touchStartY - touchEndY;
+					const minSwipeDistance = 50;
+
+					if (swipeDistance > minSwipeDistance) {
+						closeMobileMenu();
+					}
+				},
+				{ passive: true },
+			);
+
+			// Focus management for accessibility
+			mobileMenu.addEventListener("keydown", function (e: KeyboardEvent) {
+				const focusableElements = mobileMenu.querySelectorAll(
+					'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+				) as NodeListOf<HTMLElement>;
+				const firstElement = focusableElements[0];
+				const lastElement =
+					focusableElements[focusableElements.length - 1];
+
+				// Tab key navigation within menu
+				if (e.key === "Tab") {
+					if (e.shiftKey) {
+						// Shift + Tab (backward)
+						if (document.activeElement === firstElement) {
+							e.preventDefault();
+							lastElement?.focus();
+						}
+					} else {
+						// Tab (forward)
+						if (document.activeElement === lastElement) {
+							e.preventDefault();
+							firstElement?.focus();
+						}
+					}
+				}
+			});
+
+			// Responsive behavior testing
+			function testResponsiveBehavior() {
+				const screenWidth = window.innerWidth;
+				const screenHeight = window.innerHeight;
+
+				// Auto-close menu if switching to desktop
+				if (screenWidth > 768 && isMenuOpen) {
+					closeMobileMenu();
+				}
+
+				// Log responsive breakpoint for debugging (remove in production)
+				if (
+					typeof process !== "undefined" &&
+					process.env?.NODE_ENV === "development"
+				) {
+					let breakpoint = "desktop";
+					if (screenWidth <= 360) breakpoint = "extra-small";
+					else if (screenWidth <= 480) breakpoint = "small-mobile";
+					else if (screenWidth <= 768) breakpoint = "mobile";
+					else if (screenWidth <= 1024) breakpoint = "tablet";
+
+					console.log(
+						`Responsive breakpoint: ${breakpoint} (${screenWidth}x${screenHeight})`,
+					);
+				}
+			}
+
+			// Enhanced resize handler with debouncing
+			let resizeTimeout: number;
+			window.addEventListener("resize", function () {
+				clearTimeout(resizeTimeout);
+				resizeTimeout = window.setTimeout(testResponsiveBehavior, 100);
+			});
+
+			// Initial responsive test
+			testResponsiveBehavior();
+
+			// Touch capability detection
+			const isTouchDevice =
+				"ontouchstart" in window || navigator.maxTouchPoints > 0;
+			if (isTouchDevice) {
+				document.body.classList.add("touch-device");
+			}
+
+			// Screen reader announcements
+			function announceToScreenReader(message: string) {
+				const announcement = document.createElement("div");
+				announcement.setAttribute("aria-live", "polite");
+				announcement.setAttribute("aria-atomic", "true");
+				announcement.className = "sr-only";
+				announcement.textContent = message;
+
+				document.body.appendChild(announcement);
+
+				setTimeout(() => {
+					document.body.removeChild(announcement);
+				}, 1000);
+			}
+
+			// Enhanced toggle function with announcements
+			function enhancedToggleMobileMenu() {
+				toggleMobileMenu();
+
+				setTimeout(() => {
+					if (isMenuOpen) {
+						announceToScreenReader("Mobile navigation menu opened");
+					} else {
+						announceToScreenReader("Mobile navigation menu closed");
+					}
+				}, 100);
+			}
+
+			// Replace the original click handler with enhanced version
+			hamburgerMenu.removeEventListener("click", toggleMobileMenu);
+			hamburgerMenu.addEventListener("click", function (e: Event) {
+				e.preventDefault();
+				e.stopPropagation();
+				enhancedToggleMobileMenu();
+			});
+		}
+
+		// Active Section Detection for Navlink
+		function updateActiveNavLink() {
+			const sections = document.querySelectorAll("section[id]");
+			const navLinks = document.querySelectorAll(
+				'.nav-links a[href^="#"]',
+			);
+			const mobileNavLinks = document.querySelectorAll(
+				'.mobile-nav-links a[href^="#"]',
+			);
+
+			let currentSection = "";
+			const scrollPosition = window.scrollY + 100; // Offset for header
+
+			sections.forEach((section) => {
+				const sectionTop = (section as HTMLElement).offsetTop;
+				const sectionHeight = (section as HTMLElement).offsetHeight;
+
+				if (
+					scrollPosition >= sectionTop &&
+					scrollPosition < sectionTop + sectionHeight
+				) {
+					currentSection = section.getAttribute("id") || "";
+				}
+			});
+
+			// Update desktop nav links
+			navLinks.forEach((link) => {
+				link.classList.remove("active");
+				if (link.getAttribute("href") === `#${currentSection}`) {
+					link.classList.add("active");
+				}
+			});
+
+			// Update mobile nav links
+			mobileNavLinks.forEach((link) => {
+				link.classList.remove("active");
+				if (link.getAttribute("href") === `#${currentSection}`) {
+					link.classList.add("active");
+				}
+			});
+		}
+
+		// Smooth scroll for nav links
+		function setupSmoothScroll() {
+			const allNavLinks = document.querySelectorAll(
+				'.nav-links a[href^="#"], .mobile-nav-links a[href^="#"]',
+			);
+
+			allNavLinks.forEach((link) => {
+				link.addEventListener(
+					"click",
+					function (this: HTMLAnchorElement, e: Event) {
+						e.preventDefault();
+						const targetId =
+							this.getAttribute("href")?.substring(1);
+						const targetSection = targetId
+							? document.getElementById(targetId)
+							: null;
+
+						if (targetSection) {
+							const headerElement = document.querySelector(
+								".header",
+							) as HTMLElement;
+							const headerHeight = headerElement
+								? headerElement.offsetHeight
+								: 0;
+							const targetPosition =
+								(targetSection as HTMLElement).offsetTop -
+								headerHeight -
+								20;
+
+							window.scrollTo({
+								top: targetPosition,
+								behavior: "smooth",
+							});
+
+							// Close mobile menu jika terbuka
+							if (mobileMenu.classList.contains("active")) {
+								toggleMobileMenu();
+							}
+						}
+					},
+				);
+			});
+		}
+
+		// Event listeners
+		window.addEventListener("scroll", updateActiveNavLink);
+		window.addEventListener("load", updateActiveNavLink);
+
+		// Setup smooth scroll
+		setupSmoothScroll();
+	});
+</script>

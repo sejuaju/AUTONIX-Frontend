@@ -1,0 +1,429 @@
+/* Component Styles */
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all var(--transition-normal);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-large);
+    background: var(--gradient-secondary);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-color-solid);
+    border: 2px solid var(--primary-color-solid);
+}
+
+.btn-secondary:hover {
+    background: var(--gradient-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-outline:hover {
+    background: var(--background-secondary);
+    border-color: var(--primary-color-solid);
+}
+
+.btn:disabled,
+.btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Cards */
+.card {
+    background: var(--background-card);
+    border-radius: var(--border-radius-large);
+    padding: 2rem;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.card-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.card-body {
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.card-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-primary {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.badge-secondary {
+    background: var(--background-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.badge-success {
+    background: var(--success-color);
+    color: white;
+}
+
+.badge-warning {
+    background: var(--warning-color);
+    color: white;
+}
+
+.badge-error {
+    background: var(--error-color);
+    color: white;
+}
+
+/* Code */
+.inline-code {
+    background: var(--background-code);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: var(--font-family-mono);
+    font-size: 0.875rem;
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+}
+
+.code-block {
+    background: var(--background-code);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    font-family: var(--font-family-mono);
+    font-size: 0.875rem;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+}
+
+/* Lists */
+.feature-list {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    list-style: none;
+    background: var(--background-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-light);
+}
+
+.feature-list li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    padding: 0.75rem 0 0.75rem 2rem;
+    position: relative;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border-light);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1rem;
+    width: 1.5rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.feature-list li strong {
+    color: var(--primary-color-solid);
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+/* Alerts */
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.alert-info {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: #1e40af;
+}
+
+.alert-success {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #065f46;
+}
+
+.alert-warning {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    color: #92400e;
+}
+
+.alert-error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #991b1b;
+}
+
+.alert-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+/* Progress Bars */
+.progress {
+    width: 100%;
+    height: 8px;
+    background: var(--background-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 4px;
+    transition: width 0.8s ease;
+}
+
+/* Tooltips */
+.tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-primary);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal);
+    z-index: 1000;
+}
+
+.tooltip:hover::before {
+    opacity: 1;
+}
+
+/* Loading Spinner */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    border-top-color: var(--primary-color-solid);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.85rem;
+        gap: 0.4rem;
+    }
+    
+    .card {
+        padding: 1.25rem;
+        margin: 0.5rem 0;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-subtitle {
+        font-size: 0.8rem;
+    }
+    
+    .feature-list {
+        padding: 0.75rem;
+        margin: 1rem 0;
+    }
+    
+    .feature-list li {
+        padding: 0.6rem 0 0.6rem 1.5rem;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .feature-list li::before {
+        left: 0.25rem;
+        top: 0.6rem;
+        font-size: 0.9rem;
+        width: 1.25rem;
+    }
+    
+    .badge {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.7rem;
+    }
+    
+    .inline-code {
+        font-size: 0.8rem;
+        padding: 0.15rem 0.3rem;
+    }
+    
+    .code-block {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .alert {
+        padding: 0.75rem 1rem;
+        gap: 0.5rem;
+    }
+    
+    .alert-icon {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .card {
+        padding: 1rem;
+        margin: 0.25rem 0;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
+    
+    .feature-list {
+        padding: 0.5rem;
+        margin: 0.75rem 0;
+    }
+    
+    .feature-list li {
+        padding: 0.5rem 0 0.5rem 1.25rem;
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    
+    .feature-list li::before {
+        left: 0.2rem;
+        top: 0.5rem;
+        font-size: 0.8rem;
+        width: 1rem;
+    }
+    
+    .badge {
+        padding: 0.15rem 0.5rem;
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .btn {
+        padding: 0.45rem 0.8rem;
+        font-size: 0.75rem;
+    }
+    
+    .card {
+        padding: 0.75rem;
+    }
+    
+    .feature-list li {
+        padding: 0.35rem 0 0.35rem 0.8rem;
+        font-size: 0.75rem;
+    }
+}

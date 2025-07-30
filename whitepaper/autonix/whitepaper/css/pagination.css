@@ -1,0 +1,198 @@
+/* Pagination Controls */
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--background-secondary);
+    border-radius: var(--border-radius-large);
+    border: 1px solid var(--border-color);
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: var(--background-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-decoration: none;
+    color: var(--text-primary);
+    min-width: 200px;
+}
+
+.nav-btn:hover:not(.disabled) {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: var(--primary-color-solid);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.nav-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--background-secondary);
+    color: var(--text-muted);
+}
+
+.nav-btn-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.nav-direction {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.prev-btn .nav-direction {
+    justify-content: flex-start;
+}
+
+.next-btn .nav-direction {
+    justify-content: flex-end;
+}
+
+.nav-title {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.nav-btn:hover:not(.disabled) .nav-title {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Page Indicator */
+.page-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+}
+
+.current-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.section-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+.section-name {
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.page-counter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    background: var(--background-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+#currentPage {
+    color: var(--primary-color-solid);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+#totalPages {
+    color: var(--text-muted);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pagination-controls {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .nav-btn {
+        width: 100%;
+        min-width: auto;
+        justify-content: center;
+    }
+    
+    .page-indicator {
+        order: -1;
+        max-width: none;
+        width: 100%;
+    }
+    
+    .nav-btn-content {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .nav-direction {
+        justify-content: center !important;
+    }
+    
+    .nav-title {
+        text-align: center;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination-controls {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .nav-btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+    }
+    
+    .nav-direction {
+        font-size: 0.8rem;
+    }
+    
+    .nav-title {
+        font-size: 0.75rem;
+    }
+    
+    .section-name {
+        font-size: 0.9rem;
+    }
+    
+    .page-counter {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}

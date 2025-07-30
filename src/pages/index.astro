@@ -1,0 +1,148 @@
+---
+// Import any necessary components or utilities here
+import Layout from '../layouts/Layout.astro';
+import Features from '../components/Features.astro';
+import Products from '../components/Products.astro';
+import Tokenomics from '../components/Tokenomics.astro';
+import Roadmap from '../components/Roadmap.astro';
+import BusinessModel from '../components/BusinessModel.astro';
+---
+
+<Layout 
+	title="AUTONIX | Professional Trading Ecosystem"
+	description="AUTONIX - Professional Trading Ecosystem. Blockchain-based trading platform providing professional indicators and automated trading robots (EA) for retail traders with $ATX utility token."
+	keywords="autonix, professional trading, blockchain trading, automated trading, trading robots, EA, professional indicators, $ATX token, trading ecosystem"
+	canonicalUrl="https://autonix.io"
+>
+	<main id="main-content">
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="hero-video-container">
+				<video 
+					class="hero-video" 
+					autoplay 
+					muted 
+					loop 
+					playsinline
+					preload="auto"
+				>
+					<source src="/autonix-frontend/Autonix.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+			<div class="video-overlay"></div>
+			<div class="container">
+				<div class="hero-content">
+					<div class="hero-badge">
+						<i class="fas fa-crown"></i>
+						PREMIUM TRADING ECOSYSTEM
+					</div>
+					<h1 class="hero-title">
+						<span class="hero-title-main">
+							AUTONIX
+						</span>
+						<span class="hero-title-sub">Professional Trading Ecosystem</span>
+					</h1>
+					<p class="hero-description">
+						Empowering modern traders with real-world utility through trading technology, community-driven education, and proven trading systems. Access professional-grade tools with Smart Money Concepts (SMC), EMA filters, and automated Expert Advisors powered by $ATX tokens.
+					</p>
+					<div class="hero-features">
+						<div class="feature-item">
+							<i class="fas fa-robot"></i>
+							<span>Expert Advisor Bots</span>
+						</div>
+						<div class="feature-item">
+							<i class="fas fa-chart-line"></i>
+							<span>Premium Trading Signals</span>
+						</div>
+						<div class="feature-item">
+							<i class="fas fa-graduation-cap"></i>
+							<span>Educational Resources</span>
+						</div>
+					</div>
+					<div class="hero-buttons">
+						<a href="#get-started" class="btn-cta btn-cta-primary">
+							<span class="btn-text">Get Started</span>
+							<i class="fas fa-arrow-right"></i>
+						</a>
+						<a href="#whitepaper" class="btn-cta btn-cta-secondary">
+							<span class="btn-text">Read Whitepaper</span>
+							<i class="fas fa-file-alt"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Features Section -->
+		<Features/>
+
+		<!-- Products Section -->
+		<Products/>
+
+		<!-- Tokenomics Section -->
+		<Tokenomics/>
+
+		<!-- Business Model Section -->
+		<BusinessModel/>
+
+		<!-- Roadmap Section -->
+		<Roadmap/>
+
+		<!-- Stats Section -->
+		<section class="stats">
+			<div class="container">
+				<div class="grid-stats">
+					<div class="stat-item">
+						<div class="stat-number">5.0</div>
+						<div class="stat-label">rated on trustpilot</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">10K+</div>
+						<div class="stat-label">Active Traders</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">50K+</div>
+						<div class="stat-label">Community Members</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">7+</div>
+						<div class="stat-label">Years of Experience</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="cta-section">
+			<div class="container">
+				<h2 class="section-title gradient-text">Ready to Start Trading?</h2>
+				<p class="section-subtitle">Join thousands of traders who are already using AUTONIX professional trading tools.</p>
+				<div class="cta-buttons">
+					<a href="#products" class="btn-primary">
+						<i class="fas fa-rocket"></i>
+						Get Started Now
+					</a>
+					<a href="#whitepaper" class="btn-secondary">
+						<i class="fas fa-book-open"></i>
+						Read Docs
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+	
+</Layout>
+
+<style is:global>
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>

@@ -1,0 +1,399 @@
+/* Desktop Devices - Large (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+
+  /* Grid Layout */
+  .grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 95vh;
+    padding: 0;
+  }
+
+  .hero .container {
+    padding: 7rem 2rem 5rem;
+  }
+
+  .hero-content {
+    padding: 3rem 0;
+  }
+
+  .hero-badge {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title-main {
+    font-size: clamp(4rem, 7vw, 6rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title-sub {
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    padding: 2rem;
+    margin-bottom: 3.5rem;
+    line-height: 1.8;
+    max-width: 750px;
+  }
+
+  .hero-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+    max-width: 650px;
+  }
+
+  /* Features Section */
+  .features {
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  .feature-card {
+    padding: 2rem;
+    border-radius: 12px;
+  }
+
+  .feature-header {
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+    border-radius: 7px;
+  }
+
+  .feature-title {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+
+  .feature-description {
+    line-height: 1.6;
+  }
+
+  /* Products Section */
+  .products-section {
+    padding: 4rem 0;
+  }
+
+  .products-section .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .products-section .section-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .product-card {
+    border-radius: 16px;
+  }
+
+  .product-header {
+    padding: 2.5rem 2rem 0 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .product-badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+    border-radius: 20px;
+  }
+
+  .product-content {
+    padding: 0 2rem 2rem 2rem;
+  }
+
+  .product-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-description {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.65;
+  }
+
+  .product-features h4 {
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .product-features li {
+    font-size: 0.9rem;
+    margin-bottom: 0.875rem;
+    line-height: 1.65;
+  }
+
+  .product-action .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.87rem;
+  }
+
+  /* Business Model Section */
+  .business-model-section {
+    padding: 4rem 0;
+  }
+
+  .business-model-section .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .business-model-section .section-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  .business-model-grid {
+    gap: 4rem;
+    margin-top: 3rem;
+  }
+
+  .business-section {
+    padding: 2rem 0;
+  }
+
+  .business-section-header {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .business-section-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    border-radius: 12px;
+  }
+
+  .business-section-title {
+    font-size: 1.8rem;
+  }
+
+  .business-content-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .business-item {
+    padding: 1.5rem;
+    gap: 1rem;
+    border-radius: 12px;
+  }
+
+  .business-item-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+
+  .business-item-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .business-item-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .sustainability-section {
+    padding: 2.5rem;
+    border-radius: 16px;
+  }
+
+  .sustainability-content {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .sustainability-item {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  /* Development Roadmap Section */
+  .roadmap-section {
+    padding: 4rem 0;
+  }
+
+  .roadmap-section .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .roadmap-section .section-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  .roadmap-timeline {
+    gap: 2.5rem;
+  }
+
+  .phase-card {
+    flex-direction: row;
+    border-radius: 16px;
+  }
+
+  .phase-number {
+    width: 80px;
+    height: auto;
+    border-right: 1px solid rgba(226, 232, 240, 0.8);
+    border-bottom: none;
+    font-size: 1.5rem;
+  }
+
+  .phase-content {
+    padding: 2rem;
+  }
+
+  .phase-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .phase-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+  }
+
+  .phase-period {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+  }
+
+  .phase-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .phase-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .feature-row {
+    gap: 0.75rem;
+    padding: 0.4rem 0;
+  }
+
+  .feature-check {
+    font-size: 0.9rem;
+  }
+
+  .feature-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Stats Section */
+  .stats {
+    padding: 4.5rem 0;
+  }
+
+  .grid-stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .stat-item {
+    padding: 2rem;
+    border-radius: 12px;
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .stat-label {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 4rem 0;
+  }
+
+  .cta-section .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section .section-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .cta-section .btn-primary,
+  .cta-section .btn-secondary {
+    padding: 1.125rem 2.5rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    width: 220px;
+    min-width: 220px;
+    white-space: nowrap;
+  }
+
+  .cta-section .btn-primary i,
+  .cta-section .btn-secondary i {
+    font-size: 0.9rem;
+  }
+
+}
