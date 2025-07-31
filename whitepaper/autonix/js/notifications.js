@@ -11,12 +11,12 @@ export class NotificationManager {
         document.body.appendChild(notification);
         this.notifications.push(notification);
 
-        // Animate in
+     
         setTimeout(() => {
             notification.style.transform = 'translateX(0)';
         }, 100);
 
-        // Auto remove
+    
         setTimeout(() => {
             this.remove(notification);
         }, CONFIG.NOTIFICATION_DURATION);
@@ -71,5 +71,5 @@ export class NotificationManager {
     }
 }
 
-// Create global instance
+
 export const notifications = new NotificationManager();

@@ -17,17 +17,17 @@ export class SidebarManager {
     }
 
     bindEvents() {
-        // Mobile menu toggle
+        
         if (this.mobileToggle) {
             this.mobileToggle.addEventListener('click', () => this.open());
         }
 
-        // Sidebar close button
+  
         if (this.sidebarToggle) {
             this.sidebarToggle.addEventListener('click', () => this.close());
         }
 
-        // Close on TOC link click (mobile)
+        
         this.tocLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (isMobile()) {
@@ -36,7 +36,7 @@ export class SidebarManager {
             });
         });
 
-        // Close on outside click (mobile)
+       
         document.addEventListener('click', (e) => this.handleOutsideClick(e));
     }
 

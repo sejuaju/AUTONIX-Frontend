@@ -16,7 +16,7 @@ export class NavigationManager {
     }
 
     initSmoothScrolling() {
-        // Handle all anchor links
+      
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();

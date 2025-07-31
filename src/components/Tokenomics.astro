@@ -1,12 +1,10 @@
 ---
-// Tokenomics Component
 ---
 
 <style>
 	@import '../styles/tokenomics.css';
 </style>
 
-<!-- Tokenomics Section -->
 <section id="tokenomics" class="tokenomics-section">
 	<div class="container">
 		<div class="section-header">
@@ -14,9 +12,7 @@
 			<p class="section-subtitle">The $ATX token serves as the primary utility token within the AUTONIX ecosystem, facilitating transactions, governance, and access to premium features.</p>
 		</div>
 		
-		<!-- Main Tokenomics Content -->
 		<div class="tokenomics-content">
-			<!-- Token Allocation Section -->
 			<div class="allocation-section">
 				<div class="section-title-wrapper">
 					<div class="section-icon">
@@ -25,9 +21,7 @@
 					<h3 class="section-title gradient-text">Token Allocation</h3>
 				</div>
 				
-				<!-- Allocation Container - Side by Side Layout -->
 				<div class="allocation-container">
-					<!-- Left Legend -->
 					<div class="legend-left">
 						<div class="legend-item" data-slice="1">
 							<div class="legend-indicator">
@@ -60,7 +54,6 @@
 						</div>
 					</div>
 					
-					<!-- Pie Chart Container -->
 					<div class="pie-chart-container">
 						<div class="pie-chart">
 							<div class="pie-slice slice-1" data-percentage="55"></div>
@@ -69,7 +62,6 @@
 							<div class="pie-slice slice-4" data-percentage="10"></div>
 							<div class="pie-slice slice-5" data-percentage="5"></div>
 							
-							<!-- Percentage Labels on Pie Chart -->
 							<div class="pie-label pie-label-1">55%</div>
 							<div class="pie-label pie-label-2">20%</div>
 							<div class="pie-label pie-label-3">10%</div>
@@ -85,7 +77,6 @@
 						</div>
 					</div>
 					
-					<!-- Right Legend -->
 					<div class="legend-right">
 						<div class="legend-item" data-slice="3">
 							<div class="legend-indicator">
@@ -109,11 +100,9 @@
 					</div>
 				</div>
 				
-				<!-- Hidden allocation-legend for CSS compatibility -->
 				<div class="allocation-legend" style="display: none;"></div>
 			</div>
 			
-			<!-- Vesting Schedule Section -->
 			<div class="vesting-section">
 				<div class="section-title-wrapper">
 					<div class="section-icon">
@@ -151,48 +140,38 @@
 </section>
 
 <script>
-	// Tokenomics allocation bars animation
 	document.addEventListener('DOMContentLoaded', function() {
-		// Position pie chart labels automatically
 		function positionPieLabels() {
 			const pieChart = document.querySelector('.pie-chart');
 			const labels = document.querySelectorAll('.pie-label');
 			
 			if (!pieChart || labels.length === 0) return;
 			
-			// Get pie chart dimensions
 			const chartRect = pieChart.getBoundingClientRect();
 			const centerX = chartRect.width / 2;
 			const centerY = chartRect.height / 2;
-			const radius = Math.min(centerX, centerY) * 0.7; // 70% of radius for label positioning
+			const radius = Math.min(centerX, centerY) * 0.7;
 			
-			// Data for each slice matching the CSS conic-gradient order exactly
-			// CSS: from 225deg, #3b82f6 0% 55%, #10b981 55% 65%, #8b5cf6 65% 75%, #ef4444 75% 80%, #06b6d4 80% 100%
 			const sliceData = [
-				{ percentage: 55, label: '.pie-label-1', startPercent: 0 },    // Liquidity Pool (blue) - 0% to 55%
-				{ percentage: 10, label: '.pie-label-3', startPercent: 55 },   // Marketing (green) - 55% to 65%
-				{ percentage: 10, label: '.pie-label-4', startPercent: 65 },   // Team & Advisors (purple) - 65% to 75%
-				{ percentage: 5, label: '.pie-label-5', startPercent: 75 },    // Reserves & Burn (red) - 75% to 80%
-				{ percentage: 20, label: '.pie-label-2', startPercent: 80 }    // Development & R&D (cyan) - 80% to 100%
+				{ percentage: 55, label: '.pie-label-1', startPercent: 0 },
+				{ percentage: 10, label: '.pie-label-3', startPercent: 55 },
+				{ percentage: 10, label: '.pie-label-4', startPercent: 65 },
+				{ percentage: 5, label: '.pie-label-5', startPercent: 75 },
+				{ percentage: 20, label: '.pie-label-2', startPercent: 80 }
 			];
 			
 			sliceData.forEach((slice) => {
 				const label = document.querySelector(slice.label);
 				if (!label) return;
 				
-				// Calculate the middle angle of this slice
 				const middlePercent = slice.startPercent + (slice.percentage / 2);
 				const middleAngle = (middlePercent / 100) * 360;
 				
-				// Convert to radians, accounting for CSS rotation and starting position
-				// CSS starts from 225deg and rotates from -90deg to 0deg during animation
 				const angleInRadians = ((middleAngle + 225 - 90) * Math.PI) / 180;
 				
-				// Calculate x, y coordinates
 				const x = centerX + radius * Math.cos(angleInRadians);
 				const y = centerY + radius * Math.sin(angleInRadians);
 				
-				// Position the label immediately (before animation starts)
 				const htmlLabel = label as HTMLElement;
 				htmlLabel.style.left = `${x}px`;
 				htmlLabel.style.top = `${y}px`; 
@@ -200,20 +179,16 @@
 			});
 		}
 		
-		// Position labels immediately when DOM is ready (before animation starts)
 		positionPieLabels();
 		
-		// Also position labels after a short delay to ensure chart is fully rendered
 		setTimeout(positionPieLabels, 100);
 		
-		// Reposition on window resize with debounce
 		let resizeTimeout: number;
 		window.addEventListener('resize', () => {
 			clearTimeout(resizeTimeout);
 			resizeTimeout = window.setTimeout(positionPieLabels, 100);
 		});
 		
-		// Intersection Observer to detect when tokenomics section is visible
 		const observerOptions = {
 			threshold: 0.2,
 			rootMargin: '0px 0px -30px 0px'

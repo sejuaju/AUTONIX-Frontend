@@ -24,7 +24,7 @@ export class PaginationManager {
             section.style.display = index === 0 ? 'block' : 'none';
         });
 
-        // Ensure header and footer are always visible
+      
         const header = document.querySelector('.document-header');
         const footer = document.querySelector('.document-footer');
         if (header) header.style.display = 'block';
@@ -34,19 +34,19 @@ export class PaginationManager {
     showSection(index) {
         if (index < 0 || index >= this.totalSections) return;
 
-        // Hide all sections
+     
         this.sections.forEach(section => {
             section.style.display = 'none';
         });
 
-        // Show target section
+     
         this.sections[index].style.display = 'block';
         this.currentIndex = index;
 
-        // Update UI
+     
         this.updateUI();
         
-        // Scroll to top
+       
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -62,7 +62,7 @@ export class PaginationManager {
     }
 
     createNavigationControls() {
-        // Remove existing controls
+     
         const existing = document.querySelector(SELECTORS.paginationControls);
         if (existing) existing.remove();
 
@@ -97,7 +97,7 @@ export class PaginationManager {
             </button>
         `);
 
-        // Insert before footer
+       
         const footer = document.querySelector('footer');
         const mainContent = document.querySelector('.main-content');
         
@@ -107,7 +107,7 @@ export class PaginationManager {
             mainContent.appendChild(navControls);
         }
 
-        // Bind events
+       
         document.getElementById('prevBtn').addEventListener('click', () => this.previousSection());
         document.getElementById('nextBtn').addEventListener('click', () => this.nextSection());
         
@@ -162,12 +162,12 @@ export class PaginationManager {
         const nextTitleEl = document.getElementById('nextTitle');
         const currentSectionNameEl = document.getElementById('currentSectionName');
         
-        // Update current section name
+       
         if (currentSectionNameEl && sectionTitles[this.currentIndex]) {
             currentSectionNameEl.textContent = sectionTitles[this.currentIndex];
         }
         
-        // Update previous section title
+       
         if (prevTitleEl) {
             if (this.currentIndex > 0) {
                 prevTitleEl.textContent = sectionTitles[this.currentIndex - 1];
@@ -177,7 +177,7 @@ export class PaginationManager {
             }
         }
         
-        // Update next section title
+     
         if (nextTitleEl) {
             if (this.currentIndex < this.totalSections - 1) {
                 nextTitleEl.textContent = sectionTitles[this.currentIndex + 1];

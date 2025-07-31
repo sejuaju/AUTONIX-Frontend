@@ -1,0 +1,13 @@
+services:
+  autonix-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    container_name: autonix-platform
+    restart: unless-stopped
+    volumes:
+      # Optional: mount for development
+      - ./AUTONIX-Frontend:/app/frontend:ro
+      - ./whitepaper:/app/whitepaper:ro

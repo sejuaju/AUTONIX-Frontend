@@ -36,7 +36,7 @@ export class AnimationManager {
             });
         }, observerOptions);
 
-        // Observe all sections
+      
         document.querySelectorAll('.document-section').forEach(section => {
             section.classList.add('scroll-animate');
             observer.observe(section);
@@ -49,14 +49,14 @@ export class AnimationManager {
         const debouncedScrollHandler = debounce(() => {
             const scrollTop = getScrollPosition();
             
-            // Add/remove scrolled class
+        
             if (scrollTop > 50) {
                 this.navbar.classList.add(CLASSES.scrolled);
             } else {
                 this.navbar.classList.remove(CLASSES.scrolled);
             }
             
-            // Hide/show navbar on scroll
+           
             if (scrollTop > this.lastScrollTop && scrollTop > 100) {
                 this.navbar.style.transform = 'translateY(-100%)';
             } else {
@@ -117,7 +117,7 @@ export class AnimationManager {
             });
         });
 
-        // Add loading button styles
+        
         this.addLoadingStyles();
     }
 
@@ -178,7 +178,7 @@ export class AnimationManager {
             document.body.style.animation = '';
         }, 5000);
 
-        // Add rainbow animation if not exists
+       
         if (!document.querySelector('#rainbow-animation')) {
             const style = document.createElement('style');
             style.id = 'rainbow-animation';

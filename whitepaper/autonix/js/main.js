@@ -17,7 +17,7 @@ class WhitepaperApp {
     }
 
     init() {
-        // Wait for DOM to be ready
+      
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => this.initializeApp());
         } else {
@@ -27,13 +27,13 @@ class WhitepaperApp {
 
     initializeApp() {
         try {
-            // Initialize core managers
+        
             this.sidebarManager = new SidebarManager();
             this.paginationManager = new PaginationManager(this.sidebarManager);
             this.animationManager = new AnimationManager();
             this.navigationManager = new NavigationManager();
 
-            // Initialize additional features
+         
             this.initializeGlobalFeatures();
             
             console.log('AUTONIX Whitepaper App initialized successfully');
@@ -44,13 +44,13 @@ class WhitepaperApp {
     }
 
     initializeGlobalFeatures() {
-        // Preload critical resources
+      
         this.preloadResources();
         
-        // Add global copy functionality
+    
         this.initCopyFeatures();
         
-        // Add additional styles
+     
         this.addGlobalStyles();
     }
 
@@ -70,7 +70,7 @@ class WhitepaperApp {
     }
 
     initCopyFeatures() {
-        // Add copy functionality for future use
+    
         window.copyToClipboard = async (text) => {
             const success = await copyToClipboard(text);
             if (success) {
@@ -102,7 +102,7 @@ class WhitepaperApp {
         document.head.appendChild(styleSheet);
     }
 
-    // Public API methods
+    
     goToSection(sectionId) {
         if (this.paginationManager) {
             const sections = document.querySelectorAll('.document-section');
@@ -124,8 +124,8 @@ class WhitepaperApp {
     }
 }
 
-// Initialize the application
+
 const app = new WhitepaperApp();
 
-// Expose app instance globally for debugging
+
 window.WhitepaperApp = app;

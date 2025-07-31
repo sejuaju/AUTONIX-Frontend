@@ -33,21 +33,25 @@ automix/whitepaper/
 ## Benefits of Modular Structure
 
 ### 1. **Maintainability**
+
 - Each module has clear responsibilities
 - Easy to find and fix bugs
 - Changes to one module don't affect others
 
 ### 2. **Scalability**
+
 - Easy to add new features
 - Components can be reused in other projects
 - Structure that can grow over time
 
 ### 3. **Collaboration**
+
 - Teams can work on different modules simultaneously
 - Reduces merge conflicts in version control
 - Code reviews become more focused
 
 ### 4. **Performance**
+
 - More efficient loading with ES6 modules
 - Tree shaking to eliminate unused code
 - Better caching for individual files
@@ -55,74 +59,94 @@ automix/whitepaper/
 ## JavaScript Modules
 
 ### `main.js`
+
 Application entry point that initializes all managers and handles application lifecycle.
 
 ### `config.js`
+
 Contains all configuration, constants, and selectors used throughout the application.
 
 ### `utils.js`
+
 Reusable utility functions like debounce, smooth scroll, etc.
 
 ### `notifications.js`
+
 Notification system that can display success, error, warning, and info messages.
 
 ### `sidebar.js`
+
 Manages sidebar, mobile menu, and TOC navigation.
 
 ### `pagination.js`
+
 Pagination system for section navigation with complete controls.
 
 ### `animations.js`
+
 Manages all animations, scroll effects, and visual feedback.
 
 ### `navigation.js`
+
 Smooth scrolling and active navigation highlighting.
 
 ## CSS Modules
 
 ### `variables.css`
+
 CSS custom properties for colors, spacing, typography, etc.
 
 ### `reset.css`
+
 CSS reset and base styles for cross-browser consistency.
 
 ### `layout.css`
+
 Grid system, flexbox utilities, and basic layout.
 
 ### `components.css`
+
 Styling for UI components like buttons, cards, badges, alerts, etc.
 
 ### `sidebar.css`
+
 Specific styling for sidebar and navigation.
 
 ### `sections.css`
+
 Styling for document sections, header, footer, etc.
 
 ### `pagination.css`
+
 Styling for pagination controls and page navigation.
 
 ## Usage
 
 ### Development
+
 1. Edit files in `css/` or `js/` folders as needed
 2. `main.css` and `main.js` will automatically import all modules
 3. Refresh browser to see changes
 
 ### Adding New Features
+
 1. Create new file in appropriate folder (`css/` or `js/`)
 2. Import the file in `main.css` or `main.js`
 3. Or create new module and import in files that need it
 
 ### Customization
+
 - Edit `variables.css` to change theme and global styling
 - Edit `config.js` to change application behavior
 - Add utility functions in `utils.js`
 
 ## Browser Support
-- Modern browsers dengan support ES6 modules
+
+- Modern browsers with ES6 modules support
 - Chrome 61+, Firefox 60+, Safari 10.1+, Edge 16+
 
 ## Legacy Files
+
 Files `script.js` and `styles.css` are still there for reference, but are no longer used. You can delete them after ensuring all features work properly.
 
 ## Maintenance Tips
@@ -136,6 +160,7 @@ Files `script.js` and `styles.css` are still there for reference, but are no lon
 ## Troubleshooting
 
 If there are issues:
+
 1. Check browser console for JavaScript errors
 2. Ensure all CSS and JS files load correctly
 3. Verify import/export statements

@@ -10,7 +10,7 @@ import "../../styles/product-detail.css";
 	canonicalUrl="https://autonix.io/products/autonix-ea-bot"
 >
 	<main class="whitepaper-document">
-		<!-- Document Header -->
+	
 		<header class="document-header">
 			<div class="container">
 				<div class="header-content">
@@ -32,7 +32,7 @@ import "../../styles/product-detail.css";
 			</div>
 		</header>
 
-		<!-- Document Navigation -->
+		
 		<nav class="document-nav">
 			<div class="container">
 				<div class="nav-content">
@@ -57,7 +57,7 @@ import "../../styles/product-detail.css";
 		<div class="document-body">
 			<div class="container">
 				<div class="document-layout">
-					<!-- Sidebar Table of Contents -->
+				
 					<aside class="document-sidebar">
 						<div class="toc-container">
 							<h3 class="toc-title">Table of Contents</h3>
@@ -96,9 +96,9 @@ import "../../styles/product-detail.css";
 						</div>
 					</aside>
 
-					<!-- Main Content -->
+		
 					<article class="document-content">
-						<!-- Section 1: Introduction -->
+						
 						<section class="doc-section" id="section-1">
 							<header class="section-header">
 								<h2 class="section-number">1.</h2>
@@ -120,7 +120,7 @@ import "../../styles/product-detail.css";
 							</div>
 						</section>
 
-						<!-- Section 2: Problem Statement -->
+					
 						<section class="doc-section" id="section-2">
 							<header class="section-header">
 								<h2 class="section-number">2.</h2>
@@ -147,7 +147,7 @@ import "../../styles/product-detail.css";
 							</div>
 						</section>
 
-						<!-- Section 3: Objectives -->
+						
 						<section class="doc-section" id="section-3">
 							<header class="section-header">
 								<h2 class="section-number">3.</h2>
@@ -178,7 +178,7 @@ import "../../styles/product-detail.css";
 							</div>
 						</section>
 
-						<!-- Section 4: Key Features -->
+						
 						<section class="doc-section" id="section-4">
 							<header class="section-header">
 								<h2 class="section-number">4.</h2>
@@ -287,7 +287,7 @@ import "../../styles/product-detail.css";
 							</div>
 						</section>
 
-						<!-- Section 4.5: Live Demo -->
+						
 						<section
 							class="doc-section demo-section"
 							id="section-4-5"
@@ -353,7 +353,7 @@ import "../../styles/product-detail.css";
 							</div>
 						</section>
 
-						<!-- Section 5: Advantages -->
+						
 						<section class="doc-section" id="section-5">
 							<header class="section-header">
 								<h2 class="section-number">5.</h2>
@@ -390,7 +390,7 @@ import "../../styles/product-detail.css";
 							</div>
 						</section>
 
-						<!-- Section 6: Usage Scenarios -->
+						
 						<section class="doc-section" id="section-6">
 							<header class="section-header">
 								<h2 class="section-number">6.</h2>
@@ -436,7 +436,7 @@ import "../../styles/product-detail.css";
 							</div>
 						</section>
 
-						<!-- Section 7: Future Development -->
+					
 						<section class="doc-section" id="section-7">
 							<header class="section-header">
 								<h2 class="section-number">7.</h2>
@@ -461,7 +461,7 @@ import "../../styles/product-detail.css";
 							</div>
 						</section>
 
-						<!-- Section 8: Disclaimer -->
+					
 						<section
 							class="doc-section disclaimer-section"
 							id="section-8"
@@ -503,7 +503,7 @@ import "../../styles/product-detail.css";
 							</div>
 						</section>
 
-						<!-- Section 9: Contact & Licensing -->
+				
 						<section
 							class="doc-section contact-section"
 							id="section-9"
@@ -550,18 +550,17 @@ import "../../styles/product-detail.css";
 </Layout>
 
 <script>
-	// Table of Contents Navigation
+	
 	const tocLinks = document.querySelectorAll(".toc-link");
 	const sections = document.querySelectorAll(".doc-section");
 	const navToggle = document.querySelector(".nav-toggle");
 	const sidebar = document.querySelector(".document-sidebar");
 
-	// Mobile TOC toggle
 	navToggle?.addEventListener("click", () => {
 		sidebar?.classList.toggle("active");
 	});
 
-	// Smooth scrolling for TOC links
+	
 	tocLinks.forEach((link) => {
 		link.addEventListener("click", (e: Event) => {
 			e.preventDefault();
@@ -575,12 +574,12 @@ import "../../styles/product-detail.css";
 					});
 				}
 			}
-			// Close mobile menu
+		
 			sidebar?.classList.remove("active");
 		});
 	});
 
-	// Active section highlighting
+	
 	const observerOptions = {
 		threshold: 0.3,
 		rootMargin: "-20% 0px -70% 0px",
@@ -592,20 +591,20 @@ import "../../styles/product-detail.css";
 			const tocLink = document.querySelector(`a[href="#${id}"]`);
 
 			if (entry.isIntersecting) {
-				// Remove active class from all links
+			
 				tocLinks.forEach((link) => link.classList.remove("active"));
-				// Add active class to current link
+			
 				tocLink?.classList.add("active");
 			}
 		});
 	}, observerOptions);
 
-	// Observe all sections
+	
 	sections.forEach((section) => {
 		observer.observe(section);
 	});
 
-	// Close mobile menu when clicking outside
+	
 	document.addEventListener("click", (e: Event) => {
 		const target = e.target as Node;
 		if (!sidebar?.contains(target) && !navToggle?.contains(target)) {

@@ -1,73 +1,82 @@
 # AUTONIX Responsive Styles Structure
 
 ## Overview
-Struktur responsive CSS yang terorganisir untuk website AUTONIX, dengan pemisahan media queries berdasarkan ukuran layar ke dalam file-file terpisah.
 
-## Struktur File
+Organized responsive CSS structure for the AUTONIX website, with media queries separated by screen size into individual files.
+
+## File Structure
 
 ```
 responsive/
-├── index.css              # File utama yang mengimpor semua breakpoint
+├── index.css              # Main file that imports all breakpoints
 ├── extra-small.css        # < 360px (Ultra small devices)
 ├── mobile.css             # 360px - 575px (Mobile devices)
 ├── tablet.css             # 576px - 991px (Tablet devices)
 ├── desktop.css            # 992px - 1199px (Desktop devices)
 ├── large-desktop.css      # 1200px+ (Large desktop devices)
-└── README.md              # Dokumentasi ini
+└── README.md              # This documentation
 ```
 
 ## Breakpoint Details
 
 ### Extra Small Devices (< 360px)
+
 - **File**: `extra-small.css`
-- **Target**: Ponsel dengan layar sangat kecil
-- **Features**: Layout minimal, font kecil, navigasi mobile
+- **Target**: Phones with very small screens
+- **Features**: Minimal layout, small fonts, mobile navigation
 
 ### Mobile Devices (360px - 575px)
+
 - **File**: `mobile.css`
-- **Target**: Smartphone standar
-- **Features**: Layout single column, navigasi hamburger, optimasi touch
+- **Target**: Standard smartphones
+- **Features**: Single column layout, hamburger navigation, touch optimization
 
 ### Tablet Devices (576px - 991px)
+
 - **File**: `tablet.css`
-- **Target**: Tablet dan smartphone landscape
-- **Features**: Layout 2 kolom, navigasi horizontal, font sedang
+- **Target**: Tablets and landscape smartphones
+- **Features**: 2-column layout, horizontal navigation, medium fonts
 
 ### Desktop Devices (992px - 1199px)
+
 - **File**: `desktop.css`
-- **Target**: Desktop dan laptop standar
-- **Features**: Layout multi-kolom, hover effects, navigasi penuh
+- **Target**: Standard desktop and laptops
+- **Features**: Multi-column layout, hover effects, full navigation
 
 ### Large Desktop Devices (1200px+)
+
 - **File**: `large-desktop.css`
-- **Target**: Monitor besar dan ultra-wide
-- **Features**: Layout maksimal, animasi advanced, spacing optimal
+- **Target**: Large monitors and ultra-wide displays
+- **Features**: Maximum layout, advanced animations, optimal spacing
 
-## Cara Penggunaan
+## Usage
 
-### 1. Import di Layout.astro
+### 1. Import in Layout.astro
+
 ```astro
 ---
 import '../styles/responsive/index.css';
 ---
 ```
 
-### 2. Import Individual Files (Opsional)
+### 2. Import Individual Files (Optional)
+
 ```css
 @import './responsive/mobile.css';
 @import './responsive/tablet.css';
-/* dst... */
+/* etc... */
 ```
 
-### 3. Menggunakan Utility Classes
+### 3. Using Utility Classes
+
 ```html
-<!-- Hide/Show berdasarkan breakpoint -->
-<div class="hide-mobile show-tablet">Hanya tampil di tablet+</div>
-<div class="show-mobile hide-tablet">Hanya tampil di mobile</div>
+<!-- Hide/Show based on breakpoint -->
+<div class="hide-mobile show-tablet">Only visible on tablet+</div>
+<div class="show-mobile hide-tablet">Only visible on mobile</div>
 
 <!-- Responsive text -->
-<h1 class="title-responsive">Judul Responsif</h1>
-<p class="text-responsive">Teks Responsif</p>
+<h1 class="title-responsive">Responsive Title</h1>
+<p class="text-responsive">Responsive Text</p>
 
 <!-- Responsive grid -->
 <div class="grid-responsive">
@@ -77,9 +86,9 @@ import '../styles/responsive/index.css';
 </div>
 ```
 
-## CSS Variables yang Disarankan
+## Recommended CSS Variables
 
-Untuk konsistensi, gunakan CSS variables berikut di file `global.css`:
+For consistency, use the following CSS variables in the `global.css` file:
 
 ```css
 :root {
@@ -111,21 +120,21 @@ Untuk konsistensi, gunakan CSS variables berikut di file `global.css`:
 
 ## Best Practices
 
-1. **Mobile First**: Mulai dengan styling mobile, kemudian tambahkan untuk layar lebih besar
-2. **Progressive Enhancement**: Tambahkan fitur advanced untuk layar besar
-3. **Performance**: Import hanya file yang diperlukan
-4. **Consistency**: Gunakan spacing dan font size yang konsisten
-5. **Testing**: Test di berbagai device dan ukuran layar
+1. **Mobile First**: Start with mobile styling, then add for larger screens
+2. **Progressive Enhancement**: Add advanced features for larger screens
+3. **Performance**: Import only necessary files
+4. **Consistency**: Use consistent spacing and font sizes
+5. **Testing**: Test on various devices and screen sizes
 
 ## Maintenance
 
-- **Update Breakpoints**: Edit di file individual sesuai kebutuhan
-- **Add New Breakpoints**: Buat file baru dan tambahkan import di `index.css`
-- **Remove Unused Styles**: Hapus CSS yang tidak digunakan untuk optimasi
+- **Update Breakpoints**: Edit individual files as needed
+- **Add New Breakpoints**: Create new files and add imports in `index.css`
+- **Remove Unused Styles**: Delete unused CSS for optimization
 
 ## Notes
 
-- Semua file menggunakan `max-width` dan `min-width` untuk precision
-- Hover effects hanya diterapkan pada desktop+ untuk performa
-- Utility classes tersedia untuk semua breakpoint
-- Grid system otomatis menyesuaikan kolom berdasarkan layar
+- All files use `max-width` and `min-width` for precision
+- Hover effects are only applied on desktop+ for performance
+- Utility classes are available for all breakpoints
+- Grid system automatically adjusts columns based on screen size

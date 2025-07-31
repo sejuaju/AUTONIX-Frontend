@@ -1,5 +1,4 @@
 ---
-// Contact Page - Dedicated contact page for AUTONIX
 import Layout from '../layouts/Layout.astro';
 import '../styles/contact.css';
 ---
@@ -10,7 +9,6 @@ import '../styles/contact.css';
 	keywords="contact autonix, trading support, blockchain contact, professional trading help, autonix support"
 	canonicalUrl="https://autonix.io/contact"
 >
-	<!-- Page Header -->
 	<section class="page-header">
 		<div class="container">
 			<div class="breadcrumb">
@@ -23,11 +21,9 @@ import '../styles/contact.css';
 		</div>
 	</section>
 	
-	<!-- Contact Section -->
 	<section id="contact" class="contact-section">
 		<div class="container">
 			<div class="contact-grid">
-				<!-- Contact Form -->
 				<div class="contact-form-wrapper">
 					<div class="contact-form-card">
 						<div class="form-header">
@@ -78,7 +74,6 @@ import '../styles/contact.css';
 					</div>
 				</div>
 				
-				<!-- Contact Info Sidebar -->
 				<div class="contact-sidebar">
 					<div class="contact-info-card">
 						<div class="info-header">
@@ -121,7 +116,6 @@ import '../styles/contact.css';
 							</div>
 						</div>
 						
-						<!-- Quick Actions Card -->
 						<div class="quick-actions-card">
 							<h3 class="actions-title gradient-text">Quick Actions</h3>
 							<div class="action-buttons">
@@ -155,7 +149,6 @@ import '../styles/contact.css';
 		</div>
 	</section>
 	
-	<!-- Additional Contact Info -->
 	<section class="additional-info">
 		<div class="container">
 			<div class="info-grid">
@@ -188,7 +181,6 @@ import '../styles/contact.css';
 </Layout>
 
 <script>
-	// Contact Form Handler
 	document.addEventListener('DOMContentLoaded', function() {
 		const contactForm = document.getElementById('contactForm') as HTMLFormElement;
 		const submitBtn = contactForm?.querySelector('.submit-btn') as HTMLButtonElement;
@@ -201,20 +193,18 @@ import '../styles/contact.css';
 				
 				if (!submitBtn || !btnText || !btnLoading) return;
 
-				// Show loading state
 				submitBtn.disabled = true;
 				btnText.style.display = 'none';
 				btnLoading.style.display = 'inline';
 
-				// Get form data
 				const formData = new FormData(contactForm);
 				const data = Object.fromEntries(formData);
 
 				try {
-					// Simulate form submission (replace with actual endpoint)
 					console.log('Contact form submitted:', data);
 					
-					// Show success message
+					await new Promise(resolve => setTimeout(resolve, 2000));
+					
 					alert('Thank you for your message! We\'ll get back to you within 24 hours.');
 					contactForm.reset();
 					
@@ -222,7 +212,6 @@ import '../styles/contact.css';
 					console.error('Error submitting form:', error);
 					alert('Sorry, there was an error sending your message. Please try again or contact us directly.');
 				} finally {
-					// Reset button state
 					submitBtn.disabled = false;
 					btnText.style.display = 'inline';
 					btnLoading.style.display = 'none';

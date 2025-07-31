@@ -1,13 +1,10 @@
 ---
-// Header component for AUTONIX website
 import '../styles/header.css';
 
 ---
 
-<!-- Skip Link for Accessibility -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- Header -->
 <header class="header" role="banner">
 	<nav class="nav container" role="navigation" aria-label="Main navigation">
 		<a href="/" class="logo" aria-label="AUTONIX - Go to homepage">
@@ -22,7 +19,6 @@ import '../styles/header.css';
 			</div>
 		</a>
 
-		<!-- Desktop Navigation -->
 		<ul
 			class="nav-links"
 			role="menubar"
@@ -41,7 +37,6 @@ import '../styles/header.css';
 			<li role="none"><a href="/autonix-frontend/contact" role="menuitem">Contact</a></li>
 		</ul>
 
-		<!-- Hamburger Menu Button (Mobile Only) -->
 		<button
 			class="hamburger-menu"
 			aria-label="Open mobile navigation menu"
@@ -63,7 +58,6 @@ import '../styles/header.css';
 		>
 	</nav>
 
-	<!-- Mobile Menu Overlay -->
 	<div
 		class="mobile-menu"
 		id="mobile-menu"
@@ -122,7 +116,6 @@ import '../styles/header.css';
 </header>
 
 <script>
-	// Mobile menu functionality with enhanced features
 	document.addEventListener("DOMContentLoaded", function () {
 		const hamburgerMenu = document.querySelector(
 			".hamburger-menu",
@@ -135,12 +128,10 @@ import '../styles/header.css';
 		) as NodeListOf<HTMLAnchorElement>;
 		const header = document.querySelector(".header") as HTMLElement;
 
-		// State management
 		let isMenuOpen = false;
 		let isAnimating = false;
 		let lastFocusedElement: HTMLElement | null = null;
 
-		// Utility functions
 		function closeMobileMenu() {
 			if (isAnimating || !isMenuOpen) return;
 
@@ -156,7 +147,6 @@ import '../styles/header.css';
 			);
 			mobileMenu?.setAttribute("aria-hidden", "true");
 
-			// Reset tabindex for mobile menu items
 			const mobileMenuItems = mobileMenu?.querySelectorAll(
 				"a",
 			) as NodeListOf<HTMLAnchorElement>;
@@ -164,16 +154,13 @@ import '../styles/header.css';
 				item.setAttribute("tabindex", "-1");
 			});
 
-			// Re-enable body scroll
 			document.body.style.overflow = "";
 
-			// Return focus to hamburger button
 			if (lastFocusedElement) {
 				(lastFocusedElement as HTMLElement).focus();
 				lastFocusedElement = null;
 			}
 
-			// Reset animation flag after transition
 			setTimeout(() => {
 				isAnimating = false;
 			}, 300);
@@ -185,7 +172,6 @@ import '../styles/header.css';
 			isAnimating = true;
 			isMenuOpen = true;
 
-			// Store current focus
 			lastFocusedElement = document.activeElement as HTMLElement;
 
 			hamburgerMenu?.classList.add("active");
@@ -197,7 +183,6 @@ import '../styles/header.css';
 			);
 			mobileMenu?.setAttribute("aria-hidden", "false");
 
-			// Enable tabindex for mobile menu items
 			const mobileMenuItems = mobileMenu?.querySelectorAll(
 				"a",
 			) as NodeListOf<HTMLAnchorElement>;
@@ -205,13 +190,10 @@ import '../styles/header.css';
 				item.setAttribute("tabindex", "0");
 			});
 
-			// Prevent body scroll when menu is open
 			document.body.style.overflow = "hidden";
 
-			// Reset animation flag after transition
 			setTimeout(() => {
 				isAnimating = false;
-				// Focus first menu item
 				const firstMenuItem = mobileMenu?.querySelector(
 					".mobile-nav-links a",
 				) as HTMLAnchorElement;
@@ -229,7 +211,6 @@ import '../styles/header.css';
 			}
 		}
 
-		// Smooth scroll function
 		function smoothScrollTo(target: string) {
 			const element = document.querySelector(target) as HTMLElement;
 			if (element) {
@@ -243,40 +224,33 @@ import '../styles/header.css';
 			}
 		}
 
-		// Initialize menu functionality
 		if (hamburgerMenu && mobileMenu) {
-			// Hamburger menu click handler
 			hamburgerMenu.addEventListener("click", function (e: Event) {
 				e.preventDefault();
 				e.stopPropagation();
 				toggleMobileMenu();
 			});
 
-			// Navigation links click handler
 			mobileNavLinks.forEach((link) => {
 				link.addEventListener(
 					"click",
 					function (this: HTMLAnchorElement, e: Event) {
 						const href = this.getAttribute("href");
 
-						// Handle internal links (anchors)
 						if (href && href.startsWith("#")) {
 							e.preventDefault();
 							closeMobileMenu();
 
-							// Wait for menu close animation before scrolling
 							setTimeout(() => {
 								smoothScrollTo(href);
 							}, 300);
 						} else {
-							// For external links, just close the menu
 							closeMobileMenu();
 						}
 					},
 				);
 			});
 
-			// Keyboard navigation support
 			hamburgerMenu.addEventListener(
 				"keydown",
 				function (e: KeyboardEvent) {
@@ -287,14 +261,12 @@ import '../styles/header.css';
 				},
 			);
 
-			// Handle window resize
 			window.addEventListener("resize", function () {
 				if (window.innerWidth > 768 && isMenuOpen) {
 					closeMobileMenu();
 				}
 			});
 
-			// Handle orientation change
 			window.addEventListener("orientationchange", function () {
 				setTimeout(() => {
 					if (window.innerWidth > 768 && isMenuOpen) {
@@ -303,12 +275,10 @@ import '../styles/header.css';
 				}, 100);
 			});
 
-			// Outside click handler
 			document.addEventListener("click", function (e: Event) {
 				if (!isMenuOpen) return;
 
 				const target = e.target as Node;
-				// Check if click is outside the mobile menu and hamburger button
 				const isClickInsideMenu = mobileMenu.contains(target);
 				const isClickOnHamburger = hamburgerMenu.contains(target);
 
@@ -317,18 +287,15 @@ import '../styles/header.css';
 				}
 			});
 
-			// Escape key handler
 			document.addEventListener("keydown", function (e: KeyboardEvent) {
 				if (e.key === "Escape" && isMenuOpen) {
 					e.preventDefault();
 					closeMobileMenu();
 
-					// Return focus to hamburger button for accessibility
 					hamburgerMenu?.focus();
 				}
 			});
 
-			// Touch event handlers for mobile devices
 			let touchStartY = 0;
 			let touchEndY = 0;
 
@@ -345,7 +312,6 @@ import '../styles/header.css';
 				function (e: TouchEvent) {
 					touchEndY = e.changedTouches[0].screenY;
 
-					// Close menu on upward swipe (swipe up gesture)
 					const swipeDistance = touchStartY - touchEndY;
 					const minSwipeDistance = 50;
 
@@ -356,7 +322,6 @@ import '../styles/header.css';
 				{ passive: true },
 			);
 
-			// Focus management for accessibility
 			mobileMenu.addEventListener("keydown", function (e: KeyboardEvent) {
 				const focusableElements = mobileMenu.querySelectorAll(
 					'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
@@ -365,16 +330,13 @@ import '../styles/header.css';
 				const lastElement =
 					focusableElements[focusableElements.length - 1];
 
-				// Tab key navigation within menu
 				if (e.key === "Tab") {
 					if (e.shiftKey) {
-						// Shift + Tab (backward)
 						if (document.activeElement === firstElement) {
 							e.preventDefault();
 							lastElement?.focus();
 						}
 					} else {
-						// Tab (forward)
 						if (document.activeElement === lastElement) {
 							e.preventDefault();
 							firstElement?.focus();
@@ -383,17 +345,14 @@ import '../styles/header.css';
 				}
 			});
 
-			// Responsive behavior testing
 			function testResponsiveBehavior() {
 				const screenWidth = window.innerWidth;
 				const screenHeight = window.innerHeight;
 
-				// Auto-close menu if switching to desktop
 				if (screenWidth > 768 && isMenuOpen) {
 					closeMobileMenu();
 				}
 
-				// Log responsive breakpoint for debugging (remove in production)
 				if (
 					typeof process !== "undefined" &&
 					process.env?.NODE_ENV === "development"
@@ -410,24 +369,20 @@ import '../styles/header.css';
 				}
 			}
 
-			// Enhanced resize handler with debouncing
 			let resizeTimeout: number;
 			window.addEventListener("resize", function () {
 				clearTimeout(resizeTimeout);
 				resizeTimeout = window.setTimeout(testResponsiveBehavior, 100);
 			});
 
-			// Initial responsive test
 			testResponsiveBehavior();
 
-			// Touch capability detection
 			const isTouchDevice =
 				"ontouchstart" in window || navigator.maxTouchPoints > 0;
 			if (isTouchDevice) {
 				document.body.classList.add("touch-device");
 			}
 
-			// Screen reader announcements
 			function announceToScreenReader(message: string) {
 				const announcement = document.createElement("div");
 				announcement.setAttribute("aria-live", "polite");
@@ -442,7 +397,6 @@ import '../styles/header.css';
 				}, 1000);
 			}
 
-			// Enhanced toggle function with announcements
 			function enhancedToggleMobileMenu() {
 				toggleMobileMenu();
 
@@ -455,7 +409,6 @@ import '../styles/header.css';
 				}, 100);
 			}
 
-			// Replace the original click handler with enhanced version
 			hamburgerMenu.removeEventListener("click", toggleMobileMenu);
 			hamburgerMenu.addEventListener("click", function (e: Event) {
 				e.preventDefault();
@@ -464,7 +417,6 @@ import '../styles/header.css';
 			});
 		}
 
-		// Active Section Detection for Navlink
 		function updateActiveNavLink() {
 			const sections = document.querySelectorAll("section[id]");
 			const navLinks = document.querySelectorAll(
@@ -475,7 +427,7 @@ import '../styles/header.css';
 			);
 
 			let currentSection = "";
-			const scrollPosition = window.scrollY + 100; // Offset for header
+			const scrollPosition = window.scrollY + 100;
 
 			sections.forEach((section) => {
 				const sectionTop = (section as HTMLElement).offsetTop;
@@ -489,7 +441,6 @@ import '../styles/header.css';
 				}
 			});
 
-			// Update desktop nav links
 			navLinks.forEach((link) => {
 				link.classList.remove("active");
 				if (link.getAttribute("href") === `#${currentSection}`) {
@@ -497,7 +448,6 @@ import '../styles/header.css';
 				}
 			});
 
-			// Update mobile nav links
 			mobileNavLinks.forEach((link) => {
 				link.classList.remove("active");
 				if (link.getAttribute("href") === `#${currentSection}`) {
@@ -506,7 +456,6 @@ import '../styles/header.css';
 			});
 		}
 
-		// Smooth scroll for nav links
 		function setupSmoothScroll() {
 			const allNavLinks = document.querySelectorAll(
 				'.nav-links a[href^="#"], .mobile-nav-links a[href^="#"]',
@@ -540,7 +489,6 @@ import '../styles/header.css';
 								behavior: "smooth",
 							});
 
-							// Close mobile menu jika terbuka
 							if (mobileMenu.classList.contains("active")) {
 								toggleMobileMenu();
 							}
@@ -550,11 +498,9 @@ import '../styles/header.css';
 			});
 		}
 
-		// Event listeners
 		window.addEventListener("scroll", updateActiveNavLink);
 		window.addEventListener("load", updateActiveNavLink);
 
-		// Setup smooth scroll
 		setupSmoothScroll();
 	});
 </script>
