@@ -1,4 +1,5 @@
 // Main Application Entry Point
+import '../css/main.css';
 import { SidebarManager } from './sidebar.js';
 import { PaginationManager } from './pagination.js';
 import { AnimationManager } from './animations.js';

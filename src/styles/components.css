@@ -1304,4 +1304,90 @@
 	box-shadow: 0 6px 20px rgba(34, 197, 94, 0.1);
 }
 
+/* Stats Section with TradingView Card Layout */
+.stats {
+	position: relative;
+	padding: 4rem 0;
+	margin: 2rem 0;
+}
+
+.stats .container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+.stats-layout {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+	align-items: center;
+	justify-items: center;
+}
+
+.tradingview-card {
+	position: relative;
+	width: 100%;
+	max-width: 500px;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+	transition: all 0.3s ease;
+
+
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 1px;
+}
+
+.tradingview-chart {
+	width: 100%;
+	height: auto;
+	display: block;
+	transition: all 0.3s ease;
+	border-radius: 4px;
+	aspect-ratio: 16/9;
+	object-fit: cover;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for Stats */
+@media (max-width: 768px) {
+	.stats-layout {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+	
+	.stats {
+		padding: 3rem 0;
+		margin: 1.5rem 0;
+	}
+	
+	.stats .container {
+		padding: 0 1.5rem;
+	}
+	
+	.tradingview-card {
+		max-width: 400px;
+	}
+}
+
+@media (max-width: 480px) {
+	.stats {
+		padding: 2.5rem 0;
+		margin: 1rem 0;
+	}
+	
+	.stats .container {
+		padding: 0 1rem;
+	}
+	
+	.stats-layout {
+		gap: 2rem;
+	}
+	
+	.tradingview-card {
+		max-width: 100%;
+	}
+}
+
 /* Acknowledgment Footer */
