@@ -84,8 +84,18 @@ import BusinessModel from '../components/BusinessModel.astro';
 
 		<section class="stats">
 			<div class="container">
+				<div class="stats-header">
+					<h2 class="section-title gradient-text">Live Trading Performance</h2>
+					<p class="section-subtitle">Watch our Expert Advisor in action with real-time MetaTrader 5 performance</p>
+				</div>
 				<div class="stats-layout">
 					<div class="tradingview-card">
+						<div class="card-header">
+							<div class="card-title">
+								<i class="fas fa-chart-area"></i>
+								<span>MetaTrader 5 Demo</span>
+							</div>
+						</div>
 						<video 
 							class="tradingview-chart" 
 							autoplay 
@@ -97,19 +107,41 @@ import BusinessModel from '../components/BusinessModel.astro';
 							<source src="/autonix-frontend/mta5.mp4" type="video/mp4">
 							Your browser does not support the video tag.
 						</video>
+						<div class="card-footer">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="stats">
+			<div class="container">
+				<div class="stats-header">
+					<h2 class="section-title gradient-text">Trading Performance Charts</h2>
+					<p class="section-subtitle">Real trading results and performance analytics from our Expert Advisors</p>
+				</div>
+				<div class="trading-charts-grid">
+					<div class="tradingview-card">
+						<div class="card-header">
+							<div class="card-title">
+								<i class="fas fa-chart-bar"></i>
+								<span>Performance Analytics</span>
+							</div>
+						</div>
+						<img src="/autonix-frontend/{B6705EE3-D507-4BE7-8DAD-5705C575B291}.png" alt="Trading Performance Analytics" class="trading-image-single" />
+						<div class="card-footer">
+						</div>
 					</div>
 					<div class="tradingview-card">
-						<video 
-							class="tradingview-chart" 
-							autoplay 
-							muted 
-							loop 
-							playsinline
-							preload="auto"
-						>
-							<source src="/autonix-frontend/mta5.mp4" type="video/mp4">
-							Your browser does not support the video tag.
-						</video>
+						<div class="card-header">
+							<div class="card-title">
+								<i class="fas fa-chart-area"></i>
+								<span>Trading Results</span>
+							</div>
+						</div>
+						<img src="/autonix-frontend/{212459E6-813A-4A7D-B5A7-34B17466D1DB}.png" alt="Trading Results Chart" class="trading-image-single" />
+						<div class="card-footer">
+						</div>
 					</div>
 				</div>
 			</div>

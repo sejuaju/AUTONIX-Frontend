@@ -275,85 +275,61 @@
                 </p>
 
                 <h3 class="subsection-title">Trading Indicators in Action</h3>
-                <div class="video-gallery">
-                    <div class="video-card">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <h4>Custom Indicators Demo</h4>
-                            <p>Real-time market analysis using AUTONIX proprietary indicators</p>
-                        </div>
-                        <div class="video-info">
-                            <span class="video-duration">Duration: 5:30</span>
-                            <span class="video-category">Indicators</span>
+                <div class="demo-content">
+                    <div class="video-container">
+                        <video controls autoplay muted loop class="demo-video clickable-video" onclick="openVideoModal(this)">
+                            <source src="mta5.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-caption">
                         </div>
                     </div>
-
-                    <div class="video-card">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <h4>Signal Accuracy Analysis</h4>
-                            <p>Live demonstration of signal precision and market timing</p>
+                    
+                    <div class="images-grid">
+                        <div class="demo-image-card wide-image">
+                            <img src="{B6705EE3-D507-4BE7-8DAD-5705C575B291}.png" alt="" class="demo-image clickable-image" onclick="openImageModal(this.src)">
+                            <div class="image-caption">
+                            </div>
                         </div>
-                        <div class="video-info">
-                            <span class="video-duration">Duration: 8:15</span>
-                            <span class="video-category">Analysis</span>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="subsection-title">Automated Trading Systems</h3>
-                <div class="video-gallery">
-                    <div class="video-card">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <h4>Vortix EA Live Trading</h4>
-                            <p>Watch our flagship EA execute trades in real market conditions</p>
-                        </div>
-                        <div class="video-info">
-                            <span class="video-duration">Duration: 12:45</span>
-                            <span class="video-category">EA Demo</span>
-                        </div>
-                    </div>
-
-                    <div class="video-card">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <h4>Risk Management Demo</h4>
-                            <p>Advanced risk management protocols in action</p>
-                        </div>
-                        <div class="video-info">
-                            <span class="video-duration">Duration: 6:20</span>
-                            <span class="video-category">Risk Management</span>
+                        
+                        <div class="demo-image-card narrow-image">
+                            <img src="{212459E6-813A-4A7D-B5A7-34B17466D1DB}.png" alt="" class="demo-image clickable-image" onclick="openImageModal(this.src)">
+                            <div class="image-caption">
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <h3 class="subsection-title">Platform Integration</h3>
-                <div class="video-gallery">
-                    <div class="video-card">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <h4>MT5 Integration Setup</h4>
-                            <p>Step-by-step guide to integrating AUTONIX tools with MetaTrader 5</p>
+                <div id="automated-trading-systems">
+                    <h3 class="subsection-title">Automated Trading Systems</h3>
+                    
+                    <!-- Video Gallery - 2 Videos -->
+                    <div class="video-gallery">
+                        <div class="video-container">
+                            <video class="demo-video clickable-video" controls autoplay muted loop onclick="openVideoModal(this)">
+                                <source src="010855.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
-                        <div class="video-info">
-                            <span class="video-duration">Duration: 7:30</span>
-                            <span class="video-category">Setup Guide</span>
+
+                        <div class="video-container">
+                            <video class="demo-video clickable-video" controls autoplay muted loop onclick="openVideoModal(this)">
+                                <source src="111340.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
 
-                    <div class="video-card">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <h4>TradingView Integration</h4>
-                            <p>Seamless integration with TradingView platform</p>
-                        </div>
-                        <div class="video-info">
-                            <span class="video-duration">Duration: 4:45</span>
-                            <span class="video-category">Integration</span>
+                    <!-- Image Gallery - 1 Image -->
+                    <div class="images-grid">
+                        <div class="demo-image-card wide-image">
+                            <img src="ATX.jpg" alt="AUTONIX Trading Interface" class="demo-image clickable-image" onclick="openImageModal(this.src)">
+                            <div class="image-caption"></div>
                         </div>
                     </div>
                 </div>
+
+
 
                 <div class="demo-note">
                     <i class="fas fa-info-circle"></i>
@@ -729,6 +705,86 @@
         </footer>
     </main>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeImageModal()">&times;</span>
+            <img id="modalImage" class="modal-image" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeVideoModal()">&times;</span>
+            <video id="modalVideo" class="modal-video" controls autoplay>
+                <source id="modalVideoSource" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        function openImageModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function openVideoModal(videoElement) {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            const modalVideoSource = document.getElementById('modalVideoSource');
+            
+            // Get the video source from the clicked video
+            const videoSrc = videoElement.querySelector('source').src;
+            modalVideoSource.src = videoSrc;
+            modalVideo.load(); // Reload the video with new source
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Pause the original video
+            videoElement.pause();
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Pause the modal video
+            modalVideo.pause();
+        }
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeImageModal();
+                closeVideoModal();
+            }
+        });
+
+        // Prevent modal video from closing when clicking on the video itself
+        document.getElementById('modalVideo').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+
+        // Prevent modal image from closing when clicking on the image itself
+        document.getElementById('modalImage').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    </script>
 
 </body>
 
