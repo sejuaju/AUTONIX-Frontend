@@ -8,7 +8,7 @@ import '../styles/header.css';
 <header class="header" role="banner">
 	<nav class="nav container" role="navigation" aria-label="Main navigation">
 		<a href="/" class="logo" aria-label="AUTONIX - Go to homepage">
-			<img src="/autonix-frontend/logo.jpg" alt="AUTONIX Logo" role="img" />
+			<img src="/logo.jpg" alt="AUTONIX Logo" role="img" />
 			<div class="brand-text">
 				<div class="brand-name gradient-text" aria-label="AUTONIX">
 					AUTONIX
@@ -25,16 +25,16 @@ import '../styles/header.css';
 			aria-label="Desktop navigation menu"
 		>
 			<li role="none">
-				<a href="#features" role="menuitem">Features</a>
+				<a href="/#features" role="menuitem">Features</a>
 			</li>
 			<li role="none">
-				<a href="#products" role="menuitem">Products</a>
+				<a href="/#products" role="menuitem">Products</a>
 			</li>
 			<li role="none">
-				<a href="#tokenomics" role="menuitem">Tokenomics</a>
+				<a href="/#tokenomics" role="menuitem">Tokenomics</a>
 			</li>
-			<li role="none"><a href="#roadmap" role="menuitem">Roadmap</a></li>
-			<li role="none"><a href="/autonix-frontend/contact" role="menuitem">Contact</a></li>
+			<li role="none"><a href="/#roadmap" role="menuitem">Roadmap</a></li>
+			<li role="none"><a href="/contact" role="menuitem">Contact</a></li>
 		</ul>
 
 		<button
@@ -52,9 +52,10 @@ import '../styles/header.css';
 		</button>
 
 		<a
-			href="#whitepaper"
+			href="https://docs.autonix.finance"
 			class="cta-button"
-			aria-label="Download whitepaper">Whitepaper</a
+			target="_blank"
+			aria-label="Read whitepaper">Whitepaper</a
 		>
 	</nav>
 
@@ -76,33 +77,34 @@ import '../styles/header.css';
 				aria-label="Mobile navigation menu"
 			>
 				<li role="none">
-					<a href="#features" role="menuitem" tabindex="-1"
+					<a href="/#features" role="menuitem" tabindex="-1"
 					>Features</a
 					>
 				</li>
 				<li role="none">
-					<a href="#products" role="menuitem" tabindex="-1"
+					<a href="/#products" role="menuitem" tabindex="-1"
 					>Products</a
 					>
 				</li>
 				<li role="none">
-					<a href="#tokenomics" role="menuitem" tabindex="-1"
+					<a href="/#tokenomics" role="menuitem" tabindex="-1"
 					>Tokenomics</a
 					>
 				</li>
 				<li role="none">
-					<a href="#roadmap" role="menuitem" tabindex="-1">Roadmap</a>
+					<a href="/#roadmap" role="menuitem" tabindex="-1">Roadmap</a>
 				</li>
 				<li role="none">
-					<a href="/autonix-frontend/contact" role="menuitem" tabindex="-1">Contact</a>
+					<a href="/contact" role="menuitem" tabindex="-1">Contact</a>
 				</li>
 				<li role="none">
 					<a
-						href="#whitepaper"
+						href="https://docs.autonix.finance"
 						class="mobile-cta"
 						role="menuitem"
 						tabindex="-1"
-						aria-label="Download whitepaper"
+						target="_blank"
+						aria-label="Read whitepaper"
 					>
 						<span class="mobile-cta-icon" aria-hidden="true"
 						>📄</span
@@ -418,14 +420,30 @@ import '../styles/header.css';
 		}
 
 		function updateActiveNavLink() {
-			const sections = document.querySelectorAll("section[id]");
-			const navLinks = document.querySelectorAll(
-				'.nav-links a[href^="#"]',
-			);
-			const mobileNavLinks = document.querySelectorAll(
-				'.mobile-nav-links a[href^="#"]',
-			);
+			const navLinks = document.querySelectorAll('.nav-links a');
+			const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+			
+			const currentPath = window.location.pathname;
+			
+			// Case 1: Contact Page
+			if (currentPath.includes('/contact')) {
+				navLinks.forEach(link => {
+					link.classList.remove('active');
+					if (link.getAttribute('href')?.includes('/contact')) {
+						link.classList.add('active');
+					}
+				});
+				mobileNavLinks.forEach(link => {
+					link.classList.remove('active');
+					if (link.getAttribute('href')?.includes('/contact')) {
+						link.classList.add('active');
+					}
+				});
+				return;
+			}
 
+			// Case 2: Home Page Sections
+			const sections = document.querySelectorAll("section[id]");
 			let currentSection = "";
 			const scrollPosition = window.scrollY + 100;
 
@@ -443,14 +461,16 @@ import '../styles/header.css';
 
 			navLinks.forEach((link) => {
 				link.classList.remove("active");
-				if (link.getAttribute("href") === `#${currentSection}`) {
+				const href = link.getAttribute("href") || "";
+				if (href.endsWith(`#${currentSection}`) && currentSection !== "") {
 					link.classList.add("active");
 				}
 			});
 
 			mobileNavLinks.forEach((link) => {
 				link.classList.remove("active");
-				if (link.getAttribute("href") === `#${currentSection}`) {
+				const href = link.getAttribute("href") || "";
+				if (href.endsWith(`#${currentSection}`) && currentSection !== "") {
 					link.classList.add("active");
 				}
 			});
@@ -458,41 +478,42 @@ import '../styles/header.css';
 
 		function setupSmoothScroll() {
 			const allNavLinks = document.querySelectorAll(
-				'.nav-links a[href^="#"], .mobile-nav-links a[href^="#"]',
+				'.nav-links a, .mobile-nav-links a'
 			);
 
 			allNavLinks.forEach((link) => {
 				link.addEventListener(
 					"click",
 					function (this: HTMLAnchorElement, e: Event) {
-						e.preventDefault();
-						const targetId =
-							this.getAttribute("href")?.substring(1);
-						const targetSection = targetId
-							? document.getElementById(targetId)
-							: null;
+						const href = this.getAttribute("href") || "";
+						
+						// Only prevent default and smooth scroll if:
+						// 1. Link has a hash
+						// 2. We are on the same page (ignoring hash) as the current location
+						const url = new URL(this.href);
+						const isSamePage = url.pathname === window.location.pathname;
+						
+						if (url.hash && isSamePage) {
+							e.preventDefault();
+							const targetId = url.hash.substring(1);
+							const targetSection = document.getElementById(targetId);
 
-						if (targetSection) {
-							const headerElement = document.querySelector(
-								".header",
-							) as HTMLElement;
-							const headerHeight = headerElement
-								? headerElement.offsetHeight
-								: 0;
-							const targetPosition =
-								(targetSection as HTMLElement).offsetTop -
-								headerHeight -
-								20;
+							if (targetSection) {
+								const headerElement = document.querySelector(".header") as HTMLElement;
+								const headerHeight = headerElement ? headerElement.offsetHeight : 0;
+								const targetPosition = targetSection.offsetTop - headerHeight - 20;
 
-							window.scrollTo({
-								top: targetPosition,
-								behavior: "smooth",
-							});
+								window.scrollTo({
+									top: targetPosition,
+									behavior: "smooth",
+								});
 
-							if (mobileMenu.classList.contains("active")) {
-								toggleMobileMenu();
+								if (mobileMenu.classList.contains("active")) {
+									toggleMobileMenu();
+								}
 							}
 						}
+						// If not same page, let browser handle navigation (default behavior)
 					},
 				);
 			});

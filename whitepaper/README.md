@@ -1,6 +1,6 @@
 # AUTONIX Whitepaper 🚀
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://sejuaju.github.io/whitepaper/automix/whitepaper/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://x.com/AutonixEA)
 [![Docker](https://img.shields.io/badge/Docker-Ready-green?style=for-the-badge&logo=docker)](https://hub.docker.com/)
 [![Responsive](https://img.shields.io/badge/Mobile-Responsive-orange?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
 
@@ -66,7 +66,7 @@ automix/whitepaper/
 ### Local Development
 ```bash
 # Clone the repository
-git clone https://github.com/sejuaju/whitepaper.git
+git clone https://github.com/yourusername/whitepaper.git
 cd whitepaper
 
 # Serve locally (Python)
@@ -132,8 +132,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Website**: [Coming Soon]
-- **Twitter**: [@AUTONIX_Official]
-- **Telegram**: [AUTONIX Community]
+- **Twitter**: [@AutonixEA](https://x.com/AutonixEA)
+- **Telegram**: [@AutonixEA](https://t.me/AutonixEA)
 - **Email**: contact@autonix.trading
 
 ---

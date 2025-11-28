@@ -239,7 +239,6 @@
 	display: flex;
 	align-items: flex-start;
 	gap: 0.8rem;
-	margin-bottom: 1rem;
 	padding: 0.5rem 0;
 }
 
@@ -554,7 +553,6 @@
 
 	.contact-item {
 		gap: 0.7rem;
-		margin-bottom: 0.8rem;
 	}
 
 	.contact-icon {
@@ -694,7 +692,6 @@
 
 	.contact-item {
 		gap: 0.6rem;
-		margin-bottom: 0.7rem;
 		padding: 0.3rem 0;
 	}
 

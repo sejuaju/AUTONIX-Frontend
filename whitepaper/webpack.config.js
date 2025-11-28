@@ -109,7 +109,12 @@ module.exports = {
       patterns: [
         {
           from: 'autonix/images',
-          to: '.',
+          to: 'images',
+          noErrorOnMissing: true
+        },
+        {
+          from: 'autonix/logo.jpg',
+          to: 'logo.jpg',
           noErrorOnMissing: true
         }
       ]

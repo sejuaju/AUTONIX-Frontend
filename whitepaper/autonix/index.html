@@ -10,6 +10,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="/logo.jpg" />
 </head>
 
 <body>
@@ -278,7 +279,7 @@
                 <div class="demo-content">
                     <div class="video-container">
                         <video controls autoplay muted loop class="demo-video clickable-video" onclick="openVideoModal(this)">
-                            <source src="mta5.mp4" type="video/mp4">
+                            <source src="images/mta5.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">
@@ -287,13 +288,13 @@
                     
                     <div class="images-grid">
                         <div class="demo-image-card wide-image">
-                            <img src="{B6705EE3-D507-4BE7-8DAD-5705C575B291}.png" alt="" class="demo-image clickable-image" onclick="openImageModal(this.src)">
+                            <img src="images/{B6705EE3-D507-4BE7-8DAD-5705C575B291}.png" alt="" class="demo-image clickable-image" onclick="openImageModal(this.src)">
                             <div class="image-caption">
                             </div>
                         </div>
                         
                         <div class="demo-image-card narrow-image">
-                            <img src="{212459E6-813A-4A7D-B5A7-34B17466D1DB}.png" alt="" class="demo-image clickable-image" onclick="openImageModal(this.src)">
+                            <img src="images/{212459E6-813A-4A7D-B5A7-34B17466D1DB}.png" alt="" class="demo-image clickable-image" onclick="openImageModal(this.src)">
                             <div class="image-caption">
                             </div>
                         </div>
@@ -307,14 +308,14 @@
                     <div class="video-gallery">
                         <div class="video-container">
                             <video class="demo-video clickable-video" controls autoplay muted loop onclick="openVideoModal(this)">
-                                <source src="010855.mp4" type="video/mp4">
+                                <source src="images/010855.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
 
                         <div class="video-container">
                             <video class="demo-video clickable-video" controls autoplay muted loop onclick="openVideoModal(this)">
-                                <source src="111340.mp4" type="video/mp4">
+                                <source src="images/111340.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -323,7 +324,7 @@
                     <!-- Image Gallery - 1 Image -->
                     <div class="images-grid">
                         <div class="demo-image-card wide-image">
-                            <img src="ATX.jpg" alt="AUTONIX Trading Interface" class="demo-image clickable-image" onclick="openImageModal(this.src)">
+                            <img src="images/ATX.jpg" alt="AUTONIX Trading Interface" class="demo-image clickable-image" onclick="openImageModal(this.src)">
                             <div class="image-caption"></div>
                         </div>
                     </div>
@@ -348,70 +349,48 @@
             <div class="section-content">
                 <h3 class="subsection-title">Token Name: Autonix Token ($ATX)</h3>
                 <div class="tokenomics-overview">
-                    <h4 class="subsubsection-title">Total Supply: 100,000,000 $ATX</h4>
+                    <h4 class="subsubsection-title">Total Supply: 1,000,000,000 $ATX</h4>
                 </div>
+
+                <h4 class="subsubsection-title">Launch Platform</h4>
+                <p class="paragraph">
+                    $ATX will be launched via <strong>Four.meme</strong>, the leading memecoin launchpad on BNB Chain. 
+                    This ensures a fair launch mechanism where all tokens are distributed through the bonding curve, 
+                    with no presale, no team allocation, and no private sale.
+                </p>
 
                 <h4 class="subsubsection-title">Token Allocation</h4>
 
                 <div class="simple-tokenomics">
                     <div class="token-item">
                         <div class="token-info">
-                            <span class="token-name">Liquidity Pool</span>
-                            <span class="token-percent">55%</span>
+                            <span class="token-name">Bonding Curve (Four.meme)</span>
+                            <span class="token-percent">80%</span>
                         </div>
                         <div class="progress-bar">
-                            <div class="progress-fill" style="width: 55%"></div>
+                            <div class="progress-fill" style="width: 80%"></div>
                         </div>
                     </div>
 
                     <div class="token-item">
                         <div class="token-info">
-                            <span class="token-name">Development & R&D</span>
+                            <span class="token-name">PancakeSwap Liquidity</span>
                             <span class="token-percent">20%</span>
                         </div>
                         <div class="progress-bar">
                             <div class="progress-fill" style="width: 20%"></div>
                         </div>
                     </div>
-
-                    <div class="token-item">
-                        <div class="token-info">
-                            <span class="token-name">Marketing</span>
-                            <span class="token-percent">10%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 10%"></div>
-                        </div>
-                    </div>
-
-                    <div class="token-item">
-                        <div class="token-info">
-                            <span class="token-name">Team & Advisors (locked)</span>
-                            <span class="token-percent">10%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 10%"></div>
-                        </div>
-                    </div>
-
-                    <div class="token-item">
-                        <div class="token-info">
-                            <span class="token-name">Reserves & Burn</span>
-                            <span class="token-percent">5%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 5%"></div>
-                        </div>
-                    </div>
                 </div>
 
-                <h4 class="subsubsection-title">Vesting:</h4>
+                <h4 class="subsubsection-title">Launch Mechanism:</h4>
                 <ul class="feature-list">
-                    <li>Team tokens are locked for 6 months, with linear release over 12 months to ensure long-term
-                        commitment</li>
-                    <li>Development & marketing vesting over 3 months, with quarterly unlocking to support continuous
-                        platform development over 6 months</li>
+                    <li><strong>Fair Launch:</strong> 100% of tokens are distributed through the bonding curve mechanism - no presale, no team allocation, no private investors</li>
+                    <li><strong>Bonding Curve:</strong> Token price increases as more tokens are purchased, rewarding early supporters</li>
+                    <li><strong>Auto-Liquidity:</strong> Once the bonding curve reaches 100% (~18 BNB), 20% of tokens are automatically paired with collected BNB and seeded to PancakeSwap</li>
+                    <li><strong>Instant Trading:</strong> Tokens are immediately tradable after launch with no waiting period</li>
                 </ul>
+
             </div>
         </section>
 
@@ -453,7 +432,9 @@
                         </div>
                         <h4 class="phase-title">Public Launch</h4>
                         <ul class="phase-features">
-                            <li><i class="fas fa-rocket"></i>Public fair launch</li>
+                            <li><i class="fas fa-rocket"></i>Public fair launch (Four.meme)</li>
+                            <li><i class="fas fa-chart-line"></i>Dexscreener update</li>
+                            <li><i class="fas fa-chart-area"></i>Dextools update</li>
                             <li><i class="fas fa-book"></i>eBook launch</li>
                         </ul>
                     </div>
@@ -484,7 +465,8 @@
                         </div>
                         <h4 class="phase-title">Market Expansion</h4>
                         <ul class="phase-features">
-                            <li><i class="fas fa-exchange-alt"></i>Listing on several DEX networks</li>
+                            <li><i class="fas fa-coins"></i>CoinGecko listing</li>
+                            <li><i class="fas fa-chart-pie"></i>CoinMarketCap listing</li>
                             <li><i class="fas fa-users"></i>Community Referral System implementation</li>
                         </ul>
                     </div>
@@ -670,22 +652,17 @@
                 <div class="footer-section">
                     <h4>Official Links</h4>
                     <div class="footer-links">
-                        <a href="#" class="footer-link">
+                        <a href="https://autonix.finance" target="_blank" rel="noopener" class="footer-link">
                             <i class="fas fa-globe"></i>
                             <span>Official Website</span>
-                            <small>(Coming Soon)</small>
                         </a>
-                        <a href="#" class="footer-link">
+                        <a href="https://x.com/AutonixEA" target="_blank" rel="noopener" class="footer-link">
                             <i class="fab fa-twitter"></i>
                             <span>Twitter (X)</span>
                         </a>
-                        <a href="#" class="footer-link">
+                        <a href="https://t.me/AutonixEA" target="_blank" rel="noopener" class="footer-link">
                             <i class="fab fa-telegram"></i>
                             <span>Telegram Channel</span>
-                        </a>
-                        <a href="#" class="footer-link">
-                            <i class="fas fa-comments"></i>
-                            <span>Community Chat</span>
                         </a>
                     </div>
                 </div>

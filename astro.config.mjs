@@ -3,8 +3,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  base: '/autonix-frontend',
+  base: '/',
   server: {
-    port: 4324
+    port: 4325
   }
 });
